@@ -39,7 +39,7 @@ GameObject:
   - 23: {fileID: 23000014100004054}
   - 114: {fileID: 114000013715493650}
   - 114: {fileID: 114000010979574014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 8BIT_TILES
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013068273446}
   - 114: {fileID: 114000012651400812}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CAVE_PATH1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012284697802}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hazards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 1000012032845516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.125, y: 0.125, z: 0.125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012550144684}
