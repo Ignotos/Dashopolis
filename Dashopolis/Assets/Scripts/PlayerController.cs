@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     private float moveVelocity;
     public float jumpHeight;
     public float wallSlideSpeed;
+    public int dirFacing;
+    bool isWalking;
+    bool isRunning;
 
     public Transform groundCheck;
     public float groundCheckRadius;
@@ -22,9 +25,10 @@ public class PlayerController : MonoBehaviour
 
     //private bool doubleJumped;
 
-    /*
-    private Animator anim;
 
+    public Animator anim;
+
+    /*
     public Transform firePoint;
     public GameObject ninjaStar;
 
@@ -40,16 +44,31 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        isWalking = false;
+        isRunning = false;
         //anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-		Debug.Log ("Grounded: " + grounded);
+        Debug.Log("Grounded: " + grounded);
         if (!grounded)
         {
             onWall = Physics2D.OverlapCircle(leftWallCheck.position, wallCheckRadius, whatIsGround) || Physics2D.OverlapCircle(rightWallCheck.position, wallCheckRadius, whatIsGround);
+            if (onWall)
+            {
+                /*
+                if (Physics2D.OverlapCircle(leftWallCheck.position, wallCheckRadius, whatIsGround))
+                {
+                    wallDir = 1;
+                }
+                else
+                {
+                    wallDir = -1;
+                }
+                */
+            }
         }
     }
 
@@ -62,6 +81,23 @@ public class PlayerController : MonoBehaviour
             doubleJumped = false;
         }
         */
+
+        if (Input.GetButton("Dash") || Input.GetKey(KeyCode.LeftShift))
+        {
+            isRunning = true;
+        }
+        else
+        {
+            isRunning = false;
+        }
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            isWalking = true;
+        }
+        else
+        {
+            isWalking = false;
+        }
 
         bool wallSliding = false;
         if (onWall && !grounded && GetComponent<Rigidbody2D>().velocity.y < 0)
@@ -76,12 +112,12 @@ public class PlayerController : MonoBehaviour
 
         //anim.SetBool("Grounded", grounded);
 
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        if (Input.GetButtonDown("Jump") && grounded)
         {
             Jump();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && !grounded && onWall)
+        if (Input.GetButtonDown("Jump") && !grounded && onWall)
         {
             WallJump();
         }
@@ -94,8 +130,18 @@ public class PlayerController : MonoBehaviour
         }
         */
 
-        moveVelocity = 0f;
+        //moveVelocity = 0f;
 
+        if (Input.GetButton("Dash") || Input.GetKey(KeyCode.LeftShift))
+        {
+            moveVelocity = runSpeed * Input.GetAxisRaw("Horizontal");
+        }
+        else
+        {
+            moveVelocity = moveSpeed * Input.GetAxisRaw("Horizontal");
+        }
+
+        /*
         if (Input.GetKey(KeyCode.RightArrow))
         {
             //GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
@@ -109,6 +155,7 @@ public class PlayerController : MonoBehaviour
                 moveVelocity = moveSpeed;
             }
         }
+        */
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -146,12 +193,17 @@ public class PlayerController : MonoBehaviour
         if (GetComponent<Rigidbody2D>().velocity.x > 0)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
+            dirFacing = -1;
         }
 
         else if (GetComponent<Rigidbody2D>().velocity.x < 0)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
+            dirFacing = 1;
         }
+
+        anim.SetBool("isWalking", isWalking);
+        anim.SetBool("isRunning", isRunning);
 
         /*
         if (Input.GetKeyDown(KeyCode.Return))
@@ -192,6 +244,8 @@ public class PlayerController : MonoBehaviour
 
     public void WallJump()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed * 10, jumpHeight);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, jumpHeight);
+        //GetComponent<Rigidbody2D>().AddForce(new Vector2(4000 * dirFacing, 500));
+        //dirFacing = dirFacing * -1;
     }
 }

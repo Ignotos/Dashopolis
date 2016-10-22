@@ -90,6 +90,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013437249720}
   - 212: {fileID: 212000013628708546}
+  - 95: {fileID: 95000011458633756}
   m_Layer: 0
   m_Name: player_sprite
   m_TagString: Untagged
@@ -305,6 +306,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95000011458633756
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013227791422}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6a37af7e28a2f1a4d8be088cb555e86f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000010136901842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -320,6 +338,7 @@ MonoBehaviour:
   runSpeed: 12
   jumpHeight: 15
   wallSlideSpeed: 3
+  dirFacing: 0
   groundCheck: {fileID: 4000013903995854}
   groundCheckRadius: 0.2
   leftWallCheck: {fileID: 4000012379015560}
@@ -328,6 +347,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  anim: {fileID: 95000011458633756}
   knockback: 1
   knockbackLength: 0.2
   knockFromRight: 0
