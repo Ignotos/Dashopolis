@@ -27,6 +27,11 @@ public class PlayerController : MonoBehaviour
 
 
     public Animator anim;
+    AudioSource jumpSfx;
+    AudioSource groundedSfx;
+    AudioSource wallJumpSfx;
+    bool hitGround;
+    public GameObject hitGroundParticleEffect;
 
     /*
     public Transform firePoint;
@@ -46,13 +51,17 @@ public class PlayerController : MonoBehaviour
     {
         isWalking = false;
         isRunning = false;
+        AudioSource[] audios = GetComponents<AudioSource>();
+        jumpSfx = audios[1];
+        groundedSfx = audios[0];
+        wallJumpSfx = audios[2];
+        hitGround = true;
         //anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-        Debug.Log("Grounded: " + grounded);
         if (!grounded)
         {
             onWall = Physics2D.OverlapCircle(leftWallCheck.position, wallCheckRadius, whatIsGround) || Physics2D.OverlapCircle(rightWallCheck.position, wallCheckRadius, whatIsGround);
@@ -81,6 +90,18 @@ public class PlayerController : MonoBehaviour
             doubleJumped = false;
         }
         */
+        if (!grounded)
+        {
+            //Invoke("setHitGround", 0.1f);
+            hitGround = false;
+        }
+
+        if (grounded && !hitGround)
+        {
+            groundedSfx.Play();
+            Instantiate(hitGroundParticleEffect, groundCheck.transform.position + new Vector3(0, 0.2f, 0), groundCheck.transform.rotation);
+            hitGround = true;
+        }
 
         if (Input.GetButton("Dash") || Input.GetKey(KeyCode.LeftShift))
         {
@@ -239,13 +260,23 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
+        Invoke("setHitGround", 0.1f);
         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+        jumpSfx.Play();
     }
 
     public void WallJump()
     {
+        Invoke("setHitGround", 0.1f);
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, jumpHeight);
+        Instantiate(hitGroundParticleEffect, groundCheck.transform.position + new Vector3(0, 0.5f, 0), groundCheck.transform.rotation);
+        wallJumpSfx.Play();
         //GetComponent<Rigidbody2D>().AddForce(new Vector2(4000 * dirFacing, 500));
         //dirFacing = dirFacing * -1;
+    }
+
+    public void setHitGround()
+    {
+        hitGround = false;
     }
 }
