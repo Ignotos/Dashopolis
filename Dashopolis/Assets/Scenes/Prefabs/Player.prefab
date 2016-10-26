@@ -94,6 +94,7 @@ GameObject:
   - 4: {fileID: 4000013437249720}
   - 212: {fileID: 212000013628708546}
   - 95: {fileID: 95000012864149444}
+  - 96: {fileID: 96000013588047540}
   m_Layer: 0
   m_Name: player_sprite
   m_TagString: Untagged
@@ -123,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012835150394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2582989, y: -12.490977, z: 0}
+  m_LocalPosition: {x: 6, y: -17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -548,6 +549,60 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!96 &96000013588047540
+TrailRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013227791422}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f63c576739a709747a1a571260d4fabd, type: 2}
+  - {fileID: 2100000, guid: c10b1630d5621ec48a17223c3c102023, type: 2}
+  - {fileID: 2100000, guid: c10b1630d5621ec48a17223c3c102023, type: 2}
+  - {fileID: 2100000, guid: c10b1630d5621ec48a17223c3c102023, type: 2}
+  - {fileID: 2100000, guid: c10b1630d5621ec48a17223c3c102023, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Time: 1
+  m_StartWidth: 1
+  m_EndWidth: 0.1
+  m_Colors:
+    m_Color[0]:
+      serializedVersion: 2
+      rgba: 2961899348
+    m_Color[1]:
+      serializedVersion: 2
+      rgba: 2866675540
+    m_Color[2]:
+      serializedVersion: 2
+      rgba: 2458582868
+    m_Color[3]:
+      serializedVersion: 2
+      rgba: 2065694667
+    m_Color[4]:
+      serializedVersion: 2
+      rgba: 720719263
+  m_MinVertexDistance: 0.1
+  m_Autodestruct: 0
 --- !u!114 &114000010136901842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -564,7 +619,7 @@ MonoBehaviour:
   runSpeed: 12
   jumpHeight: 15
   wallSlideSpeed: 3
-  dirFacing: 0
+  dirFacing: -1
   groundCheck: {fileID: 4000013903995854}
   groundCheckRadius: 0.3
   leftWallCheck: {fileID: 4000012379015560}
@@ -580,6 +635,8 @@ MonoBehaviour:
   knockbackLength: 0.2
   knockFromRight: 0
   knockbackCount: 0
+  deathParticles: {fileID: 0}
+  superSkill: 0
 --- !u!124 &124000011342230214
 Behaviour:
   m_ObjectHideFlags: 1

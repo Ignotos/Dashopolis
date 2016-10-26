@@ -15,6 +15,11 @@ public class PlayerController : MonoBehaviour
     public int dirFacing;
     bool isWalking;
     bool isRunning;
+    bool isJumping;
+    bool isWallJumping;
+    bool isUsingSuperFlight;
+    bool isUsingSuperSpeed;
+    bool isUsingSuperTime;
 
     public Transform groundCheck;
     public float groundCheckRadius;
@@ -49,6 +54,10 @@ public class PlayerController : MonoBehaviour
     public bool knockFromRight;
     public float knockbackCount;
 
+    public GameObject deathParticles;
+    public int superSkill; // 1: SuperSpeed 2: SuperFlight 3: SuperTime
+    private int superSkillTimer;
+
     // Use this for initialization
     void Start()
     {
@@ -62,6 +71,13 @@ public class PlayerController : MonoBehaviour
         }
         isWalking = false;
         isRunning = false;
+        isJumping = false;
+        isWallJumping = false;
+        isUsingSuperFlight = false;
+        isUsingSuperSpeed = false;
+        isUsingSuperTime = false;
+        superSkillTimer = 0;
+
         AudioSource[] audios = GetComponents<AudioSource>();
         groundedSfx = audios[0];
         jumpSfx = audios[1];
@@ -146,13 +162,22 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown(playerPrefix + "Jump") && grounded)
         {
+            isJumping = true;
             Jump();
         }
+        else
+            isJumping = false;
 
         if (Input.GetButtonDown(playerPrefix + "Jump") && !grounded && onWall)
         {
+            isWallJumping = true;
             WallJump();
         }
+        else
+            isWallJumping = false;
+
+        anim.SetBool("isJumping", isJumping);
+        anim.SetBool("isWallJumping", isWallJumping);
 
         /*
         if (Input.GetKeyDown(KeyCode.Space) && !doubleJumped && !grounded)
@@ -291,5 +316,109 @@ public class PlayerController : MonoBehaviour
     public void setHitGround()
     {
         hitGround = false;
+    }
+
+    public void Die()
+    {
+        // Add particles effect
+        Instantiate(deathParticles, transform.position, transform.rotation);
+        
+        // Make the gameObject disappear without killing it
+        gameObject.SetActive(false);
+
+        /*SpriteRenderer sprite_renderer = (SpriteRenderer) gameObject.GetComponentInChildren<SpriteRenderer>();
+        sprite_renderer.enabled = false;*/
+    }
+
+    public void Respawn()
+    {
+       /* SpriteRenderer spriteRenderer = (SpriteRenderer) gameObject.GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer.enabled = true;*/
+
+        // Reactivate the gameObject
+        gameObject.SetActive(true);
+
+        // Add a trail to show the use of a super skill
+        TrailRenderer trailRenderer = gameObject.GetComponentInChildren<TrailRenderer>();
+        trailRenderer.enabled = true;
+    }
+
+    public void SuperSpeed()
+    {
+        // Add a trail to show the use of a super skill
+        TrailRenderer trailRenderer = gameObject.GetComponentInChildren<TrailRenderer>();
+        trailRenderer.enabled = true;
+
+        // Give speed boost
+        moveSpeed *= 5;
+    }
+
+    public void SuperFlight()
+    {
+        // Add a trail to show the use of a super skill
+        TrailRenderer trailRenderer = gameObject.GetComponentInChildren<TrailRenderer>();
+        trailRenderer.enabled = true;
+
+        // Remove gravity
+        gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
+    }
+
+    public void SuperTime()
+    {
+        // Next iteration
+    }
+
+    // Manage the Super Skills
+    public void EnableSuperSkill()
+    {
+        // Super Speed
+        if (superSkill == 1)
+        {
+            isUsingSuperSpeed = true;
+            SuperSpeed();
+        }
+        else
+            isUsingSuperSpeed = false;
+
+        // Super Flight
+        if (superSkill == 2)
+        {
+            DisableOtherMoves();
+            isUsingSuperFlight = true;
+
+            SuperFlight();
+        }
+        else
+            isUsingSuperFlight = false;
+
+        // Super Time?? Next iteration
+        if (superSkill == 3)
+        {
+            isUsingSuperTime = true;
+            SuperTime();
+        }
+        else
+            isUsingSuperTime = false;
+
+        anim.SetBool("isUsingSuperSpeed", isUsingSuperSpeed);
+        anim.SetBool("isUsingSuperFlight", isUsingSuperFlight);
+        anim.SetBool("isUsingSuperTime", isUsingSuperTime);
+    }
+
+
+    public void DisableOtherMoves()
+    {
+        // Disable other animations
+        isWalking = false;
+        isRunning = false;
+        isJumping = false;
+        isWallJumping = false;
+        isUsingSuperFlight = true;
+
+        anim.SetBool("isWalking", isWalking);
+        anim.SetBool("isRunning", isRunning);
+        anim.SetBool("isJumping", isJumping);
+        anim.SetBool("isWallJumping", isWallJumping);
+
     }
 }
