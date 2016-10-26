@@ -4,6 +4,9 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
 
+    public int playerNumber; // player 1, player 2... (player 0 used for KB controls) 
+    private string playerPrefix; // used to map inputs individually for each player 
+
     public float moveSpeed;
     public float runSpeed;
     private float moveVelocity;
@@ -49,11 +52,19 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if (playerNumber == 0)
+        {
+            playerPrefix = "KB_";
+        }
+        else
+        {
+            playerPrefix = "P" + playerNumber + "_";
+        }
         isWalking = false;
         isRunning = false;
         AudioSource[] audios = GetComponents<AudioSource>();
-        jumpSfx = audios[1];
         groundedSfx = audios[0];
+        jumpSfx = audios[1];
         wallJumpSfx = audios[2];
         hitGround = true;
         //anim = GetComponent<Animator>();
@@ -103,7 +114,7 @@ public class PlayerController : MonoBehaviour
             hitGround = true;
         }
 
-        if (Input.GetButton("Dash") || Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetButton(playerPrefix + "Dash"))
         {
             isRunning = true;
         }
@@ -111,7 +122,7 @@ public class PlayerController : MonoBehaviour
         {
             isRunning = false;
         }
-        if (Input.GetAxisRaw("Horizontal") != 0)
+        if (Input.GetAxisRaw(playerPrefix + "Horizontal") != 0)
         {
             isWalking = true;
         }
@@ -133,12 +144,12 @@ public class PlayerController : MonoBehaviour
 
         //anim.SetBool("Grounded", grounded);
 
-        if (Input.GetButtonDown("Jump") && grounded)
+        if (Input.GetButtonDown(playerPrefix + "Jump") && grounded)
         {
             Jump();
         }
 
-        if (Input.GetButtonDown("Jump") && !grounded && onWall)
+        if (Input.GetButtonDown(playerPrefix + "Jump") && !grounded && onWall)
         {
             WallJump();
         }
@@ -153,13 +164,13 @@ public class PlayerController : MonoBehaviour
 
         //moveVelocity = 0f;
 
-        if (Input.GetButton("Dash") || Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetButton(playerPrefix + "Dash"))
         {
-            moveVelocity = runSpeed * Input.GetAxisRaw("Horizontal");
+            moveVelocity = runSpeed * Input.GetAxisRaw(playerPrefix + "Horizontal");
         }
         else
         {
-            moveVelocity = moveSpeed * Input.GetAxisRaw("Horizontal");
+            moveVelocity = moveSpeed * Input.GetAxisRaw(playerPrefix + "Horizontal");
         }
 
         /*
@@ -178,6 +189,7 @@ public class PlayerController : MonoBehaviour
         }
         */
 
+        /*
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             //GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
@@ -190,6 +202,7 @@ public class PlayerController : MonoBehaviour
                 moveVelocity = -moveSpeed;
             }
         }
+        */
 
         if (knockbackCount <= 0)
         {
