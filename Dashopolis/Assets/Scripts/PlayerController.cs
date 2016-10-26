@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     bool isRunning;
     bool isJumping;
     bool isWallJumping;
+    bool isGrounded;
     bool isUsingSuperFlight;
     bool isUsingSuperSpeed;
     bool isUsingSuperTime;
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
     public Transform rightWallCheck;
     public float wallCheckRadius;
     public LayerMask whatIsGround;
-    private bool grounded;
+    
     private bool onWall;
 
 
@@ -88,8 +89,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-        if (!grounded)
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+        anim.SetBool("isGrounded", isGrounded);
+
+        if (!isGrounded)
         {
             onWall = Physics2D.OverlapCircle(leftWallCheck.position, wallCheckRadius, whatIsGround) || Physics2D.OverlapCircle(rightWallCheck.position, wallCheckRadius, whatIsGround);
             if (onWall)
@@ -117,13 +120,13 @@ public class PlayerController : MonoBehaviour
             doubleJumped = false;
         }
         */
-        if (!grounded)
+        if (!isGrounded)
         {
             //Invoke("setHitGround", 0.1f);
             hitGround = false;
         }
 
-        if (grounded && !hitGround)
+        if (isGrounded && !hitGround)
         {
             groundedSfx.Play();
             Instantiate(hitGroundParticleEffect, groundCheck.transform.position + new Vector3(0, 0.2f, 0), groundCheck.transform.rotation);
@@ -148,7 +151,10 @@ public class PlayerController : MonoBehaviour
         }
 
         bool wallSliding = false;
-        if (onWall && !grounded && GetComponent<Rigidbody2D>().velocity.y < 0)
+
+        onWall = Physics2D.OverlapCircle(leftWallCheck.position, wallCheckRadius, whatIsGround) || Physics2D.OverlapCircle(rightWallCheck.position, wallCheckRadius, whatIsGround);
+
+        if (onWall && !isGrounded && GetComponent<Rigidbody2D>().velocity.y < 0)
         {
             wallSliding = true;
 
@@ -156,31 +162,41 @@ public class PlayerController : MonoBehaviour
             {
                 GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, -wallSlideSpeed);
             }
+
+            anim.SetBool("isWallJumping", wallSliding);
         }
+
 
         //anim.SetBool("Grounded", grounded);
 
-        if (Input.GetButtonDown(playerPrefix + "Jump") && grounded)
+        if (Input.GetButtonDown(playerPrefix + "Jump") && isGrounded && !onWall)
         {
+            Debug.Log("JUMPING");
             isJumping = true;
-            Jump();
-        }
-        else
-            isJumping = false;
-
-        if (Input.GetButtonDown(playerPrefix + "Jump") && !grounded && onWall)
-        {
-            isWallJumping = true;
-            WallJump();
-        }
-        else
             isWallJumping = false;
+            Jump();
+            JumpDisableOtherAnim();
+        }
+        else if (Input.GetButtonDown(playerPrefix + "Jump") /*&& !isGrounded*/ && onWall)
+        {
+            Debug.Log("WALL JUMPING");
+            isWallJumping = true;
+            isJumping = false;
+            WallJump();
+            JumpDisableOtherAnim();
+        }
+        else
+        {
+            isJumping = false;
+            isWallJumping = false;
+            Debug.Log("NO JUMPING");
+        } 
 
         anim.SetBool("isJumping", isJumping);
         anim.SetBool("isWallJumping", isWallJumping);
 
         /*
-        if (Input.GetKeyDown(KeyCode.Space) && !doubleJumped && !grounded)
+        if (Input.GetKeyDown(KeyCode.Space) && !doubleJumped && !isGrounded)
         {
             Jump();
             doubleJumped = true;
@@ -383,7 +399,7 @@ public class PlayerController : MonoBehaviour
         // Super Flight
         if (superSkill == 2)
         {
-            DisableOtherMoves();
+            SuperFlightDisableOtherAnim();
             isUsingSuperFlight = true;
 
             SuperFlight();
@@ -400,25 +416,37 @@ public class PlayerController : MonoBehaviour
         else
             isUsingSuperTime = false;
 
-        anim.SetBool("isUsingSuperSpeed", isUsingSuperSpeed);
+ /*       anim.SetBool("isUsingSuperSpeed", isUsingSuperSpeed);
         anim.SetBool("isUsingSuperFlight", isUsingSuperFlight);
-        anim.SetBool("isUsingSuperTime", isUsingSuperTime);
+        anim.SetBool("isUsingSuperTime", isUsingSuperTime);*/
     }
 
 
-    public void DisableOtherMoves()
+    public void SuperFlightDisableOtherAnim()
     {
         // Disable other animations
         isWalking = false;
         isRunning = false;
         isJumping = false;
         isWallJumping = false;
-        isUsingSuperFlight = true;
+   //     isUsingSuperFlight = true;
 
         anim.SetBool("isWalking", isWalking);
         anim.SetBool("isRunning", isRunning);
         anim.SetBool("isJumping", isJumping);
         anim.SetBool("isWallJumping", isWallJumping);
+
+    }
+
+    public void JumpDisableOtherAnim()
+    {
+        // Disable other animations
+        isWalking = false;
+        isRunning = false;
+    //    isUsingSuperFlight = true;
+
+        anim.SetBool("isWalking", isWalking);
+        anim.SetBool("isRunning", isRunning);
 
     }
 }
