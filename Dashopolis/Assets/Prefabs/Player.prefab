@@ -334,6 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785aad6d6d1241b46b06296a585efa1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 0
   moveSpeed: 5
   runSpeed: 12
   jumpHeight: 15
@@ -347,11 +348,15 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  Power: 0
   anim: {fileID: 95000011458633756}
+  hitGroundParticleEffect: {fileID: 0}
   knockback: 1
   knockbackLength: 0.2
   knockFromRight: 0
   knockbackCount: 0
+  deathParticles: {fileID: 0}
+  superSkill: 0
 --- !u!124 &124000011342230214
 Behaviour:
   m_ObjectHideFlags: 1
