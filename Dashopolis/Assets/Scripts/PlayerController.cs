@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround;
     public int Power;
 
+	private HUDManager hud;
 
     private bool onWall;
 
@@ -64,6 +65,8 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		hud = GameObject.Find ("HUD").GetComponentInChildren<HUDManager>();
+
         if (playerNumber == 0)
         {
             playerPrefix = "KB_";
@@ -480,6 +483,11 @@ public class PlayerController : MonoBehaviour
     public void AddPower(int newpowervalue)
     {
         Power += newpowervalue;
+
+		if (playerNumber == 0)
+			hud.increasePlayerOne (newpowervalue);
+		else
+			hud.increasePlayerTwo (newpowervalue);
         
     }
 

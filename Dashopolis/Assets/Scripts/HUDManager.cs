@@ -20,8 +20,8 @@ public class HUDManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		pOne.value = (int)Time.time;
-		pTwo.value = (int)Time.time;
+	//	pOne.value = (int)Time.time;
+	//	pTwo.value = (int)Time.time;
 		timeCounter.text = string.Format ("{0:0}:{1:00}", Time.time/60f,Time.time);
 
 	}
