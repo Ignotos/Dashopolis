@@ -31,11 +31,13 @@ public class DestroyedByContact : MonoBehaviour {
        
         if (other.CompareTag("Player"))
         {
+			other.GetComponent<PlayerController> ().AddPower (Powervalue);
+		//	Player.AddPower(Powervalue);
+			//Destroy(other.gameObject);
+			Destroy(gameObject);
             //Instantiate(playerexplosion, other.transform.position, other.transform.rotation); for later when we have effects
         }
 
-        Player.AddPower(Powervalue);
-        //Destroy(other.gameObject);
-        Destroy(gameObject);
+        
     }
 }

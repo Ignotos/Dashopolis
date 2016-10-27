@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		
         /*
         if (grounded)
         {
@@ -191,6 +192,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown(playerPrefix + "Jump") && isGrounded && !onWall)
         {
+			
             //Debug.Log("JUMPING");
             isJumping = true;
             isWallJumping = false;
@@ -213,7 +215,7 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
             isWallJumping = false;
-            Debug.Log("NO JUMPING");
+         //   Debug.Log("NO JUMPING");
         }
 
         anim.SetBool("isWalking", isWalking);
@@ -483,11 +485,14 @@ public class PlayerController : MonoBehaviour
     public void AddPower(int newpowervalue)
     {
         Power += newpowervalue;
-
-		if (playerNumber == 0)
+		Debug.Log ("Player: " + playerNumber);
+		Debug.Log ("Prefix: " + playerPrefix);
+		if (playerNumber == 0) {
 			hud.increasePlayerOne (newpowervalue);
-		else
+		}
+		else if (playerNumber == 1) {
 			hud.increasePlayerTwo (newpowervalue);
+		}
         
     }
 
