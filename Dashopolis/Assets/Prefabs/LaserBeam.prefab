@@ -24,7 +24,7 @@ GameObject:
   - 61: {fileID: 61000011797029864}
   - 114: {fileID: 114000012918668084}
   - 50: {fileID: 50000010197303452}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LaserBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
