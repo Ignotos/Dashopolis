@@ -125,6 +125,19 @@ public class PlayerController : MonoBehaviour
             //Invoke("setHitGround", 0.1f);
             hitGround = false;
         }
+        
+        else
+        {
+            bool isFalling = false;
+            anim.SetBool("isFalling", isFalling);
+            /*
+            isJumping = false;
+            isWallJumping = false;
+            anim.SetBool("isJumping", isJumping);
+            anim.SetBool("isWallJumping", isWallJumping);
+            */
+        }
+
 
         if (isGrounded && !hitGround)
         {
@@ -133,14 +146,6 @@ public class PlayerController : MonoBehaviour
             hitGround = true;
         }
 
-        if (Input.GetButton(playerPrefix + "Dash"))
-        {
-            isRunning = true;
-        }
-        else
-        {
-            isRunning = false;
-        }
         if (Input.GetAxisRaw(playerPrefix + "Horizontal") != 0)
         {
             isWalking = true;
@@ -148,6 +153,15 @@ public class PlayerController : MonoBehaviour
         else
         {
             isWalking = false;
+        }
+        if (Input.GetButton(playerPrefix + "Dash") && isWalking)
+        {
+            isRunning = true;
+            //isWalking = false;
+        }
+        else
+        {
+            isRunning = false;
         }
 
         bool wallSliding = false;
@@ -171,29 +185,41 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown(playerPrefix + "Jump") && isGrounded && !onWall)
         {
-            Debug.Log("JUMPING");
+            //Debug.Log("JUMPING");
             isJumping = true;
             isWallJumping = false;
+            anim.SetBool("isJumping", isJumping);
+            anim.SetBool("isWallJumping", isWallJumping);
             Jump();
-            JumpDisableOtherAnim();
+            //JumpDisableOtherAnim();
         }
         else if (Input.GetButtonDown(playerPrefix + "Jump") /*&& !isGrounded*/ && onWall)
         {
-            Debug.Log("WALL JUMPING");
+            //Debug.Log("WALL JUMPING");
             isWallJumping = true;
             isJumping = false;
+            anim.SetBool("isWallJumping", isWallJumping);
+            anim.SetBool("isJumping", isJumping);
             WallJump();
-            JumpDisableOtherAnim();
+            //JumpDisableOtherAnim();
         }
         else
         {
             isJumping = false;
             isWallJumping = false;
             Debug.Log("NO JUMPING");
-        } 
+        }
 
-        anim.SetBool("isJumping", isJumping);
-        anim.SetBool("isWallJumping", isWallJumping);
+        anim.SetBool("isWalking", isWalking);
+        anim.SetBool("isRunning", isRunning);
+        anim.SetBool("isGrounded", isGrounded);
+        //}
+
+        if (GetComponent<Rigidbody2D>().velocity.y < 0)
+        {
+            bool isFalling = true;
+            anim.SetBool("isFalling", isFalling);
+        }
 
         /*
         if (Input.GetKeyDown(KeyCode.Space) && !doubleJumped && !isGrounded)
@@ -277,9 +303,6 @@ public class PlayerController : MonoBehaviour
             dirFacing = 1;
         }
 
-        anim.SetBool("isWalking", isWalking);
-        anim.SetBool("isRunning", isRunning);
-
         /*
         if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -322,6 +345,7 @@ public class PlayerController : MonoBehaviour
     public void WallJump()
     {
         Invoke("setHitGround", 0.1f);
+        anim.SetTrigger("wallJump");
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, jumpHeight);
         Instantiate(hitGroundParticleEffect, groundCheck.transform.position + new Vector3(0, 0.5f, 0), groundCheck.transform.rotation);
         wallJumpSfx.Play();
