@@ -6,8 +6,10 @@ public class CameraController : MonoBehaviour {
     public Transform player1;
     public Transform player2;
     public bool singlePlayer;
+    public float zoomScalingFactor; 
     private float distance; // distance between the two players 
     private float deltaDistance; // the change in distance since the last frame 
+
 
 	// Use this for initialization
 	void Start () {
@@ -23,13 +25,13 @@ public class CameraController : MonoBehaviour {
             // if delta distance is positive, means that the players are further away from each other since the last frame 
             if (deltaDistance <= 0)
             {
-                GetComponent<Camera>().orthographicSize += (deltaDistance * 0.5f);
+                GetComponent<Camera>().orthographicSize += (deltaDistance * zoomScalingFactor);
             }
 
             // if negative, they are closer since the last frame
             else
             {
-                GetComponent<Camera>().orthographicSize += (deltaDistance * 0.5f);
+                GetComponent<Camera>().orthographicSize += (deltaDistance * zoomScalingFactor);
             }
 
             distance = Vector3.Distance(player1.position, player2.position);
