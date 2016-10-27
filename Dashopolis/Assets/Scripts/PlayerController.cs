@@ -28,7 +28,9 @@ public class PlayerController : MonoBehaviour
     public Transform rightWallCheck;
     public float wallCheckRadius;
     public LayerMask whatIsGround;
-    
+    public int Power;
+
+
     private bool onWall;
 
 
@@ -85,6 +87,7 @@ public class PlayerController : MonoBehaviour
         wallJumpSfx = audios[2];
         hitGround = true;
         //anim = GetComponent<Animator>();
+     
     }
 
     void FixedUpdate()
@@ -473,4 +476,12 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isRunning", isRunning);
 
     }
+
+    public void AddPower(int newpowervalue)
+    {
+        Power += newpowervalue;
+        
+    }
+
+
 }
