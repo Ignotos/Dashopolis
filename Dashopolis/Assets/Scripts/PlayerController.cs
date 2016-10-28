@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     bool isUsingSuperFlight;
     bool isUsingSuperSpeed;
     bool isUsingSuperTime;
+    bool startSuperSkill;
 
     public Transform groundCheck;
     public float groundCheckRadius;
@@ -60,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject deathParticles;
     public int superSkill; // 1: SuperSpeed 2: SuperFlight 3: SuperTime
-    private int superSkillTimer;
+    private float superSkillTimer;
 
     // Use this for initialization
     void Start()
@@ -83,6 +84,7 @@ public class PlayerController : MonoBehaviour
         isUsingSuperSpeed = false;
         isUsingSuperTime = false;
         superSkillTimer = 0;
+        startSuperSkill = false;
 
         AudioSource[] audios = GetComponents<AudioSource>();
         groundedSfx = audios[0];
@@ -279,6 +281,24 @@ public class PlayerController : MonoBehaviour
         }
         */
 
+
+        if (Power >= 5)
+        {
+            Debug.Log("Enable SS");
+            Debug.Log("superSkillTimer:" + superSkillTimer);
+            Debug.Log("Time:" + Time.time);
+
+       /*     if (!startSuperSkill)
+                EnableSuperSkill();
+            else if (startSuperSkill && (superSkillTimer + 5) < Time.time)*/
+                EnableSuperSkill();
+        /*    else
+                DisableSuperSkill(); */
+        }
+        else
+            DisableSuperSkill();
+
+
         if (knockbackCount <= 0)
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
@@ -341,6 +361,8 @@ public class PlayerController : MonoBehaviour
 
         }
         */
+
+
     }
 
     public void Jump()
@@ -398,7 +420,7 @@ public class PlayerController : MonoBehaviour
         trailRenderer.enabled = true;
 
         // Give speed boost
-        moveSpeed *= 5;
+        moveVelocity = moveVelocity * 5;
     }
 
     public void SuperFlight()
@@ -419,6 +441,12 @@ public class PlayerController : MonoBehaviour
     // Manage the Super Skills
     public void EnableSuperSkill()
     {
+        if (!startSuperSkill)
+        {
+            startSuperSkill = true;
+            superSkillTimer = Time.time;
+        }
+
         // Super Speed
         if (superSkill == 1)
         {
@@ -453,6 +481,14 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isUsingSuperTime", isUsingSuperTime);*/
     }
 
+    public void DisableSuperSkill()
+    {
+        isUsingSuperFlight = false;
+        isUsingSuperSpeed = false;
+
+        anim.SetBool("isUsingSuperFlight", isUsingSuperFlight);
+        anim.SetBool("isUsingSuperSpeed", isUsingSuperSpeed);
+    }
 
     public void SuperFlightDisableOtherAnim()
     {
@@ -506,6 +542,10 @@ public class PlayerController : MonoBehaviour
         return Power;
     }
 
+    public void UpdatePowerBar()
+    {
+        
+    }
 
 
 }

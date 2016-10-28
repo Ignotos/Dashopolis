@@ -76,7 +76,7 @@ GameObject:
   - 82: {fileID: 82000011876690276}
   - 82: {fileID: 82000010348639668}
   - 82: {fileID: 82000012215673088}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player_1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014049429810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 222.86, y: -15.92, z: 0}
+  m_LocalPosition: {x: 178.5, y: -14.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -556,7 +556,7 @@ MonoBehaviour:
   knockFromRight: 0
   knockbackCount: 0
   deathParticles: {fileID: 164672, guid: 9cf83ab96114906489d601382dec2336, type: 2}
-  superSkill: 0
+  superSkill: 2
 --- !u!212 &212000011040947222
 SpriteRenderer:
   m_ObjectHideFlags: 1
