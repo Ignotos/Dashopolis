@@ -67,6 +67,7 @@ GameObject:
   - 212: {fileID: 212000013885643272}
   - 114: {fileID: 114000012689070834}
   - 120: {fileID: 120000013133128072}
+  - 114: {fileID: 114000012103911760}
   m_Layer: 0
   m_Name: LaserTurret (2)
   m_TagString: Untagged
@@ -85,6 +86,7 @@ GameObject:
   - 212: {fileID: 212000010372547620}
   - 114: {fileID: 114000011516761518}
   - 120: {fileID: 120000010692136328}
+  - 114: {fileID: 114000011869824180}
   m_Layer: 0
   m_Name: LaserTurret
   m_TagString: Untagged
@@ -148,6 +150,7 @@ GameObject:
   - 212: {fileID: 212000013642276762}
   - 114: {fileID: 114000014012626244}
   - 120: {fileID: 120000010075622998}
+  - 114: {fileID: 114000010153903864}
   m_Layer: 0
   m_Name: LaserTurret (1)
   m_TagString: Untagged
@@ -309,6 +312,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000010299056868}
   m_RootOrder: 1
+--- !u!114 &114000010153903864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013743521628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1258cc35a36a534994aae9f8220c741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Powervalue: 0
 --- !u!114 &114000011516761518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -322,6 +337,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 4000014023148314}
   canon: {fileID: 4000012967929532}
+--- !u!114 &114000011869824180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012190827156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1258cc35a36a534994aae9f8220c741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Powervalue: 0
+--- !u!114 &114000012103911760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012172294384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1258cc35a36a534994aae9f8220c741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Powervalue: 0
 --- !u!114 &114000012689070834
 MonoBehaviour:
   m_ObjectHideFlags: 1

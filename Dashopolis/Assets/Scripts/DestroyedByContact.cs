@@ -5,39 +5,40 @@ public class DestroyedByContact : MonoBehaviour {
 
 
     public int Powervalue;
-    private PlayerController Player;
-
+	private PlayerController player;
     // Use this for initialization
     void Start ()
     {
-        GameObject GameControlerObject = GameObject.FindWithTag("Player");
-        if (GameControlerObject != null)
+		
+		//will not work when both players have same tag
+		/*
+        GameObject GameControllerObject = GameObject.Find("Player");
+		
+
+        if (GameControllerObject != null)
         {
-            Player = GameControlerObject.GetComponent<PlayerController>();
+            player = GameControllerObject.GetComponent<PlayerController>();
         }
-        if (Player == null)
+        if (player == null)
         {
             Debug.Log("cannot find GameController script");
         }
+		*/
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     void OnTriggerEnter2D(Collider2D other)
-    {
-       
-        if (other.CompareTag("Player"))
-        {
-			other.GetComponent<PlayerController> ().AddPower (Powervalue);
-		//	Player.AddPower(Powervalue);
-			//Destroy(other.gameObject);
-			Destroy(gameObject);
-            //Instantiate(playerexplosion, other.transform.position, other.transform.rotation); for later when we have effects
-        }
-
-        
+    { 
+		if (other.gameObject.CompareTag("Player"))
+		{
+			PlayerController player = other.GetComponentInParent<PlayerController>();
+			if(gameObject.CompareTag("PowerUp")){
+				player.AddPower(Powervalue);
+				Destroy(gameObject);
+			}	
+			else{
+			player.RemovePower(player.GetPower());
+			player.Die();
+			}
+		}
     }
 }

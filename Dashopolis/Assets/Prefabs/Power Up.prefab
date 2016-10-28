@@ -24,7 +24,7 @@ GameObject:
   - 114: {fileID: 114000014271930462}
   m_Layer: 0
   m_Name: Power Up
-  m_TagString: New Tag
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

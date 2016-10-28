@@ -23,6 +23,7 @@ GameObject:
   - 58: {fileID: 58000011405038110}
   - 50: {fileID: 50000012347802114}
   - 233: {fileID: 233000010984382660}
+  - 114: {fileID: 114000012409043610}
   m_Layer: 0
   m_Name: SwingingBoulder
   m_TagString: Untagged
@@ -147,6 +148,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angle: 45
   speed: 100
+--- !u!114 &114000012409043610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010085234894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1258cc35a36a534994aae9f8220c741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Powervalue: 0
 --- !u!212 &212000011932063188
 SpriteRenderer:
   m_ObjectHideFlags: 1

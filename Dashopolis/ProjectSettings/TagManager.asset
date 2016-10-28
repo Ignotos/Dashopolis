@@ -7,6 +7,8 @@ TagManager:
   - FinishLine
   - PowerUp
   - Map
+  - Player_0
+  - Player_1
   layers:
   - Default
   - TransparentFX

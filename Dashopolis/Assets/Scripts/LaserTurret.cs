@@ -5,6 +5,7 @@ public class LaserTurret : MonoBehaviour {
 	LineRenderer lineRenderer;
 	public Transform target;
 	public Transform canon;
+	float distance;
 	// Use this for initialization
 	void Start () {
 		lineRenderer = GetComponent<LineRenderer>();
@@ -14,6 +15,8 @@ public class LaserTurret : MonoBehaviour {
 				if(lineRenderer == null){
 			Debug.Log("LINE RENDERER IS NULL");
 		}
+		
+		distance = Vector3.Distance(target.position,canon.position);
 	}
 	
 	// Update is called once per frame
@@ -31,5 +34,7 @@ public class LaserTurret : MonoBehaviour {
 		else{
 			lineRenderer.enabled = false;
 		}
+		
+		
 	}
 }

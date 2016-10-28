@@ -22,6 +22,7 @@ GameObject:
   - 212: {fileID: 212000010139822456}
   - 114: {fileID: 114000011414629606}
   - 120: {fileID: 120000013773935124}
+  - 114: {fileID: 114000010920688178}
   m_Layer: 0
   m_Name: LaserTurret
   m_TagString: Untagged
@@ -100,6 +101,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000012096577522}
   m_RootOrder: 0
+--- !u!114 &114000010920688178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010749795302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1258cc35a36a534994aae9f8220c741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Powervalue: 0
 --- !u!114 &114000011414629606
 MonoBehaviour:
   m_ObjectHideFlags: 1

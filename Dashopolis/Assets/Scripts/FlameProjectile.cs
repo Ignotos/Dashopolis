@@ -7,8 +7,4 @@ public class FlameProjectile : MonoBehaviour {
 	void Update () {
 		transform.Translate(Vector2.down * Time.deltaTime * 10);
 	}
-	
-	void OnTriggerEnter2D(Collider2D other){
-		Destroy(gameObject);
-	}
 }

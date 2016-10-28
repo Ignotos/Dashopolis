@@ -33,19 +33,5 @@ public class SwingingBoulder : MonoBehaviour {
             motor.motorSpeed = -1 * speed;
             hingeJoint.motor = motor;
         }
-
 	}
-
-    // When the boulder hits a player, the player dies and loses all its orbs??
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            //Instantiate(playerexplosion, other.transform.position, other.transform.rotation); for later when we have effects
-            PlayerController player = other.GetComponentInParent<PlayerController>();
-            player.RemovePower(player.GetPower());
-            player.Die();
-        }
-
-    }
 }
