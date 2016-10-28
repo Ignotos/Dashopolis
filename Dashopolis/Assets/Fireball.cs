@@ -12,4 +12,8 @@ public class Fireball : MonoBehaviour {
 	void Update () {
 		transform.Translate(Vector2.up * Time.deltaTime * 10);	
 	}
+	
+	void OnTriggerEnter2D(Collider2D other){
+		Destroy(gameObject);
+	}
 }
