@@ -9,14 +9,14 @@ public class Turret : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		fireRate = 2f;
+		fireRate = 0.5f;
 		delay = 0.5f;
 		InvokeRepeating ("Shoot", delay, fireRate);
 	}
 	
 	// Update is called once per frame
 	void Shoot () {
-		int random = Random.Range(0,2);
+		int random = Random.Range(0,8);
 		if (random == 0){
 		Instantiate(projectile,projectileSpawnPoint.position, projectileSpawnPoint.rotation);
 		}

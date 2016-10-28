@@ -28,7 +28,7 @@ public class RockController : MonoBehaviour {
         no = Random.Range(0, 10);
         no1 = Random.Range(0.0f, 1.0f);
 
-        Debug.Log(no1);
+        //Debug.Log(no1);
 
         switch (no)
         {
