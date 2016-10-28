@@ -6,7 +6,7 @@ TagManager:
   tags:
   - FinishLine
   - PowerUp
-  - New Tag
+  - Map
   layers:
   - Default
   - TransparentFX
