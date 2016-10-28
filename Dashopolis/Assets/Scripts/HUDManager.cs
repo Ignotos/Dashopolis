@@ -9,6 +9,10 @@ public class HUDManager : MonoBehaviour {
 
 	Text timeCounter;
 
+	float seconds;
+	int minutes;
+	float totalTime;
+
 	// Use this for initialization
 	void Start () {
 		Slider[] s = transform.parent.GetComponentsInChildren<Slider> ();
@@ -20,9 +24,13 @@ public class HUDManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	//	pOne.value = (int)Time.time;
-	//	pTwo.value = (int)Time.time;
-		timeCounter.text = string.Format ("{0:0}:{1:00}", Time.time/60f,Time.time);
+		totalTime += Time.deltaTime;
+
+		minutes = (int)(totalTime / 60);
+
+		seconds = (int)(totalTime % 60);
+
+		timeCounter.text = string.Format ("{0:0}:{1:00}", minutes, seconds);
 
 	}
 
