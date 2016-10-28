@@ -12,6 +12,7 @@ public class RockController : MonoBehaviour {
     public float fireRate;
     public float delay;
     private int no;
+    private float no1;
 
     // Use this for initialization
     void Start ()
@@ -25,8 +26,11 @@ public class RockController : MonoBehaviour {
 	void Fire()
     {
         no = Random.Range(0, 10);
-        
-        switch(no)
+        no1 = Random.Range(0.0f, 1.0f);
+
+        Debug.Log(no1);
+
+        switch (no)
         {
             case 0:
                 break;
