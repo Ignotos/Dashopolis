@@ -496,5 +496,16 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public void RemovePower(int powervalue)
+    {
+        Power -= powervalue;
+    }
+
+    public int GetPower()
+    {
+        return Power;
+    }
+
+
 
 }

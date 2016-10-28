@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: efd713b67b1213a4593a72944ac033b4
-timeCreated: 1477635345
+timeCreated: 1477640429
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -64,6 +64,7 @@ TextureImporter:
     21300114: 8BIT_TILES_57
     21300116: 8BIT_TILES_58
     21300118: 8BIT_TILES_59
+    21300120: 8BIT_TILES_60
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -887,6 +888,19 @@ TextureImporter:
         y: 225
         width: 31
         height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_60
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 179
+        width: 26
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

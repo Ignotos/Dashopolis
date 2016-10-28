@@ -39,19 +39,13 @@ public class SwingingBoulder : MonoBehaviour {
     // When the boulder hits a player, the player dies and loses all its orbs??
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Cannot detect the tag??
-      /*  Debug.Log("TAG: " + other.gameObject.tag);
-
         if (other.gameObject.CompareTag("Player"))
         {
             //Instantiate(playerexplosion, other.transform.position, other.transform.rotation); for later when we have effects
             PlayerController player = other.GetComponentInParent<PlayerController>();
             player.RemovePower(player.GetPower());
             player.Die();
-            Debug.Log("HIT!");
         }
-        else
-            Debug.Log("NOT HIT??");*/
 
     }
 }

@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014049429810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6, y: -12.490977, z: 0}
+  m_LocalPosition: {x: 222.86, y: -15.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -209,9 +209,9 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: ccb36ca101946194bb5c941baa9ac48a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.010536194, y: -0.47388935}
+  m_Offset: {x: -0.010543823, y: -0.29926682}
   serializedVersion: 2
-  m_Size: {x: 0.81044996, y: 1.8214079}
+  m_Size: {x: 0.81044996, y: 2.1706467}
 --- !u!82 &82000010348639668
 AudioSource:
   m_ObjectHideFlags: 1
@@ -533,7 +533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785aad6d6d1241b46b06296a585efa1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 1
+  playerNumber: 0
   moveSpeed: 5
   runSpeed: 12
   jumpHeight: 15
