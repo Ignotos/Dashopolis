@@ -9,6 +9,7 @@ TagManager:
   - Map
   - Player_0
   - Player_1
+  - Ground
   layers:
   - Default
   - TransparentFX

@@ -6,25 +6,6 @@ public class DestroyedByContact : MonoBehaviour {
 
     public int Powervalue;
 	private PlayerController player;
-    // Use this for initialization
-    void Start ()
-    {
-		
-		//will not work when both players have same tag
-		/*
-        GameObject GameControllerObject = GameObject.Find("Player");
-		
-
-        if (GameControllerObject != null)
-        {
-            player = GameControllerObject.GetComponent<PlayerController>();
-        }
-        if (player == null)
-        {
-            Debug.Log("cannot find GameController script");
-        }
-		*/
-    }
 
     void OnTriggerEnter2D(Collider2D other)
     { 
@@ -41,4 +22,13 @@ public class DestroyedByContact : MonoBehaviour {
 			}
 		}
     }
+	
+	 void OnCollisionEnter2D(Collision2D other){
+		if(other.gameObject.CompareTag("Player")){
+			GameObject playerObject = GameObject.Find(other.gameObject.name);
+			player = playerObject.GetComponent<PlayerController>();
+			player.RemovePower(player.GetPower());
+			player.Die();	
+		}
+	 }
 }
