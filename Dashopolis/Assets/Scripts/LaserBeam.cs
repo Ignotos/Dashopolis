@@ -7,4 +7,8 @@ public class LaserBeam : MonoBehaviour {
 	void Update () {
 		transform.Translate(Vector2.down * Time.deltaTime);
 	}
+	
+	void OnTriggerEnter2D(Collider2D other){
+		Destroy(gameObject);
+	}
 }

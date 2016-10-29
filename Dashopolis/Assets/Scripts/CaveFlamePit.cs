@@ -9,8 +9,8 @@ public class CaveFlamePit : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		fireRate = 0.25f;
-		delay = 0.5f;
+		//fireRate = 0.25f;
+		//delay = 0.5f;
 		InvokeRepeating ("Shoot", delay, fireRate);
 	}
 	
