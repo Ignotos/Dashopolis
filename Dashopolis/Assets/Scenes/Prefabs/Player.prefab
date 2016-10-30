@@ -533,7 +533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785aad6d6d1241b46b06296a585efa1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 1
+  playerNumber: 0
   checkpoints: {fileID: 0}
   moveSpeed: 5
   runSpeed: 12
@@ -556,7 +556,7 @@ MonoBehaviour:
   knockFromRight: 0
   knockbackCount: 0
   deathParticles: {fileID: 164672, guid: 9cf83ab96114906489d601382dec2336, type: 2}
-  superSkill: 0
+  superSkill: 1
 --- !u!212 &212000011776815384
 SpriteRenderer:
   m_ObjectHideFlags: 1

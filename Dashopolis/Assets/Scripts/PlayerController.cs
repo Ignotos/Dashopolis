@@ -136,13 +136,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("POWER = " + Power);
-
-        if (CheckSuperSkillConditions())
-            EnableSuperSkill();
-        else
-            DisableSuperSkill();
-
         /*
         if (grounded)
         {
@@ -242,14 +235,21 @@ public class PlayerController : MonoBehaviour
 
         //moveVelocity = 0f;
 
+        //  Running: available in all cases, except for SuperFlight
         if (Input.GetButton(playerPrefix + "Dash") && !isUsingSuperFlight)
-        {
             moveVelocityH = runSpeed * Input.GetAxisRaw(playerPrefix + "Horizontal");
-        }
+        // SuperSpeed min speed = runSpeed
+        else if (!Input.GetButton(playerPrefix + "Dash") && isUsingSuperSpeed)
+            moveVelocityH = runSpeed / superSpeedBoost * Input.GetAxisRaw(playerPrefix + "Horizontal");
+        // Walking
         else
-        {
             moveVelocityH = moveSpeed * Input.GetAxisRaw(playerPrefix + "Horizontal");
-        }
+
+        // Manage the Super Skills add-ons
+        if (CheckSuperSkillConditions())
+            EnableSuperSkill();
+        else
+            DisableSuperSkill();
 
         /*
         if (Input.GetKey(KeyCode.RightArrow))
