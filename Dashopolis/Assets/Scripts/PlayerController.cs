@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     bool isWallJumping;
     bool isGrounded;
     bool isFalling;
+    bool isUsingSkill;
     bool isUsingSuperFlight;
     bool isUsingSuperSpeed;
     bool isUsingSuperTime;
@@ -247,10 +248,18 @@ public class PlayerController : MonoBehaviour
             moveVelocityH = moveSpeed * Input.GetAxisRaw(playerPrefix + "Horizontal");
 
         // Manage the Super Skills add-ons
-        if (CheckSuperSkillConditions())
-            EnableSuperSkill();
-        else
+        if (Input.GetButton(playerPrefix + "Skill") || startSuperSkill)
+        {
+            if (CheckSuperSkillConditions() || startSuperSkill)
+                EnableSuperSkill();
+            //else
+                //DisableSuperSkill();
+        }
+
+        if (startSuperSkill && !UpdateSuperSkill())
+        {
             DisableSuperSkill();
+        }
 
         if (knockbackCount <= 0)
         {
@@ -529,25 +538,29 @@ public class PlayerController : MonoBehaviour
             superSkillCtr++;
             return true;
         }
+        // Case 4: not enough orbs
+        else
+            return false;
+    }
+
+    bool UpdateSuperSkill()
+    {
         // Case 2: SS is still enabled and has not reached the time limit
-        else if (startSuperSkill && Power >= ReqPower && Time.time <= superSkillStartTime + superSkillDuration)
+        if (startSuperSkill && Power >= ReqPower && Time.time <= superSkillStartTime + superSkillDuration)
         {
             DecreasePowerBar(Time.time);
             return true;
         }
         // Case 3: SS was enabled, but the player died or has reached the time limit
-        else if (startSuperSkill && (Power == 0 || Time.time > superSkillStartTime + superSkillDuration))
+        //else (startSuperSkill && (Power == 0 || Time.time > superSkillStartTime + superSkillDuration))
+        else 
         {
             startSuperSkill = false;
             superSkillStartTime = -1;
             superSkillCtr = 0;
             ResetPower();
-
             return false;
         }
-        // Case 4: not enough orbs
-        else
-            return false;
     }
 
     void DecreasePowerBar(float currentTime)
