@@ -142,6 +142,7 @@ public class PlayerController : MonoBehaviour
             doubleJumped = false;
         }
         */
+
         if (!isGrounded)
         {
             //Invoke("setHitGround", 0.1f);
@@ -251,38 +252,6 @@ public class PlayerController : MonoBehaviour
         else
             DisableSuperSkill();
 
-        /*
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            //GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                moveVelocity = runSpeed;
-
-            }
-            else
-            {
-                moveVelocity = moveSpeed;
-            }
-        }
-        */
-
-        /*
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            //GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                moveVelocity = -runSpeed;
-            }
-            else
-            {
-                moveVelocity = -moveSpeed;
-            }
-        }
-        */
-
-
         if (knockbackCount <= 0)
         {
             if (!isUsingSuperFlight)
@@ -317,37 +286,6 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-1f, 1f, 1f);
             dirFacing = 1;
         }
-
-        /*
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            Instantiate(ninjaStar, firePoint.position, firePoint.rotation);
-            shotDelayCounter = shotDelay;
-        }
-
-        if (Input.GetKey(KeyCode.Return))
-        {
-            shotDelayCounter -= Time.deltaTime;
-
-            if (shotDelayCounter <= 0)
-            {
-                Instantiate(ninjaStar, firePoint.position, firePoint.rotation);
-                shotDelayCounter = shotDelay;
-            }
-        }
-
-        
-        if (anim.GetBool("Sword"))
-        {
-            anim.SetBool("Sword", false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            anim.SetBool("Sword", true);
-
-        }
-        */
 
         // Update all the animation parameters (booleans)
         SetAnimBool();
@@ -452,7 +390,7 @@ public class PlayerController : MonoBehaviour
     public void SuperFlight()
     {
         // Read Up and Down arrow input
-        moveVelocityV = moveSpeed * Input.GetAxisRaw("Vertical");
+        moveVelocityV = moveSpeed * Input.GetAxisRaw(playerPrefix + "Vertical");
 
         // Add a trail to show the use of a super skill
         TrailRenderer trailRenderer = gameObject.GetComponentInChildren<TrailRenderer>();
