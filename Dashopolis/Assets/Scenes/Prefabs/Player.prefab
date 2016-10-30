@@ -534,6 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 1
+  checkpoints: {fileID: 0}
   moveSpeed: 5
   runSpeed: 12
   jumpHeight: 15
@@ -556,7 +557,6 @@ MonoBehaviour:
   knockbackCount: 0
   deathParticles: {fileID: 164672, guid: 9cf83ab96114906489d601382dec2336, type: 2}
   superSkill: 0
-  superBoost: 2
 --- !u!212 &212000011776815384
 SpriteRenderer:
   m_ObjectHideFlags: 1

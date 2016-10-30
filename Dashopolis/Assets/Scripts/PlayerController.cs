@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public int playerNumber; // player 1, player 2... (player 0 used for KB controls) 
     private string playerPrefix; // used to map inputs individually for each player 
 
+    public GameObject checkpoints;
+
     public float moveSpeed;
     public float runSpeed;
     private float moveVelocityH;
@@ -134,7 +136,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("POWER = " + Power);
+        //Debug.Log("POWER = " + Power);
 
         if (CheckSuperSkillConditions())
             EnableSuperSkill();
@@ -389,6 +391,8 @@ public class PlayerController : MonoBehaviour
         // Make the gameObject disappear without killing it
         gameObject.SetActive(false);
 
+        Invoke("Respawn", 2);
+
         /*SpriteRenderer sprite_renderer = (SpriteRenderer) gameObject.GetComponentInChildren<SpriteRenderer>();
         sprite_renderer.enabled = false;*/
     }
@@ -397,13 +401,42 @@ public class PlayerController : MonoBehaviour
     {
         /* SpriteRenderer spriteRenderer = (SpriteRenderer) gameObject.GetComponentInChildren<SpriteRenderer>();
          spriteRenderer.enabled = true;*/
+        Debug.Log("Player " + playerNumber + " Respawn");
+
+        /*
+        GameObject[] checkpoints;
+        checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
+        GameObject activeCheckpoint = checkpoints[0];
+        int checkpointIndex = 0;
+        */
+
+        Transform[] cs = checkpoints.GetComponentsInChildren<Transform>();
+        Transform activeCheckpoint = cs[0];
+
+        foreach (Transform t in cs)
+        {
+            if (t.position.x < gameObject.transform.position.x)
+            {
+                //Debug.Log(checkpointIndex);
+                activeCheckpoint = t;
+                //checkpointIndex++;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        gameObject.transform.position = new Vector2(activeCheckpoint.position.x, activeCheckpoint.position.y);
 
         // Reactivate the gameObject
         gameObject.SetActive(true);
 
         // Add a trail to show the use of a super skill
+        /*
         TrailRenderer trailRenderer = gameObject.GetComponentInChildren<TrailRenderer>();
         trailRenderer.enabled = true;
+        */
     }
 
     public void SuperSpeed()
@@ -507,8 +540,8 @@ public class PlayerController : MonoBehaviour
     public void AddPower(int newpowervalue)
     {
         Power += newpowervalue;
-        Debug.Log("Player: " + playerNumber);
-        Debug.Log("Prefix: " + playerPrefix);
+        //Debug.Log("Player: " + playerNumber);
+        //Debug.Log("Prefix: " + playerPrefix);
         if (playerNumber == 0)
         {
             hud.increasePlayerOne(newpowervalue);
