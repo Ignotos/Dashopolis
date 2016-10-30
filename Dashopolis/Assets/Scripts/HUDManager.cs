@@ -19,6 +19,7 @@ public class HUDManager : MonoBehaviour {
 		timeCounter = transform.parent.GetComponentsInChildren<Text> ()[1];
 		pOne = s [0];
 		pTwo = s [1];
+        Debug.Log("START UI VALUE: " + pOne.value);
 		timeCounter.text = "";
 	}
 	
@@ -43,9 +44,22 @@ public class HUDManager : MonoBehaviour {
 	}
 
 	public void resetPlayerOne(){
-		
+        pOne.value = 0;
 	}
 
-	public void resetPLayerTwo(){
+	public void resetPlayerTwo(){
+        pTwo.value = 0;
 	}
+
+    public void decreasePlayerOne(int p)
+    {
+        if (pOne.value > 0)
+            pOne.value -= p;
+    }
+
+    public void decreasePlayerTwo(int p)
+    {
+        if(pTwo.value > 0)
+            pTwo.value -= p;
+    }
 }

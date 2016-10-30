@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014049429810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 178.5, y: -14.3, z: 0}
+  m_LocalPosition: {x: 2, y: -9.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -547,7 +547,6 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  Power: 0
   anim: {fileID: 95000013039114514}
   hitGroundParticleEffect: {fileID: 1000013318155170, guid: 032a255b7f4847b4ca792a6602d1f495,
     type: 2}
@@ -556,7 +555,8 @@ MonoBehaviour:
   knockFromRight: 0
   knockbackCount: 0
   deathParticles: {fileID: 164672, guid: 9cf83ab96114906489d601382dec2336, type: 2}
-  superSkill: 2
+  superSkill: 1
+  superBoost: 2
 --- !u!212 &212000011040947222
 SpriteRenderer:
   m_ObjectHideFlags: 1

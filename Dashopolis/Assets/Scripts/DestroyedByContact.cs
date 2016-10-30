@@ -17,7 +17,7 @@ public class DestroyedByContact : MonoBehaviour {
 				Destroy(gameObject);
 			}	
 			else{
-			player.RemovePower(player.GetPower());
+            player.ResetPower();
 			player.Die();
 			}
 		}
@@ -27,7 +27,7 @@ public class DestroyedByContact : MonoBehaviour {
 		if(other.gameObject.CompareTag("Player")){
 			GameObject playerObject = GameObject.Find(other.gameObject.name);
 			player = playerObject.GetComponent<PlayerController>();
-			player.RemovePower(player.GetPower());
+            player.ResetPower();
 			player.Die();	
 		}
 	 }

@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed;
     public float runSpeed;
-    private float moveVelocity;
+    private float moveVelocityH;
+    private float moveVelocityV;
     public float jumpHeight;
     public float wallSlideSpeed;
     public int dirFacing;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     bool isJumping;
     bool isWallJumping;
     bool isGrounded;
+    bool isFalling;
     bool isUsingSuperFlight;
     bool isUsingSuperSpeed;
     bool isUsingSuperTime;
@@ -29,12 +31,12 @@ public class PlayerController : MonoBehaviour
     public Transform rightWallCheck;
     public float wallCheckRadius;
     public LayerMask whatIsGround;
-    public int Power;
+    private int Power;
+    private int ReqPower;
 
-	private HUDManager hud;
+    private HUDManager hud;
 
     private bool onWall;
-
 
     //private bool doubleJumped;
 
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
     AudioSource wallJumpSfx;
     bool hitGround;
     public GameObject hitGroundParticleEffect;
+    private float oriGravityScale;
 
     /*
     public Transform firePoint;
@@ -61,12 +64,14 @@ public class PlayerController : MonoBehaviour
 
     public GameObject deathParticles;
     public int superSkill; // 1: SuperSpeed 2: SuperFlight 3: SuperTime
-    private float superSkillTimer;
+    private float superSkillStartTime;
+    private int superSkillCtr;
+    private float superSpeedBoost;
 
     // Use this for initialization
     void Start()
     {
-		hud = GameObject.Find ("HUD").GetComponentInChildren<HUDManager>();
+        hud = GameObject.Find("HUD").GetComponentInChildren<HUDManager>();
 
         if (playerNumber == 0)
         {
@@ -83,8 +88,9 @@ public class PlayerController : MonoBehaviour
         isUsingSuperFlight = false;
         isUsingSuperSpeed = false;
         isUsingSuperTime = false;
-        superSkillTimer = 0;
+        superSkillStartTime = -1;
         startSuperSkill = false;
+        oriGravityScale = gameObject.GetComponent<Rigidbody2D>().gravityScale;
 
         AudioSource[] audios = GetComponents<AudioSource>();
         groundedSfx = audios[0];
@@ -92,17 +98,21 @@ public class PlayerController : MonoBehaviour
         wallJumpSfx = audios[2];
         hitGround = true;
         //anim = GetComponent<Animator>();
-     
+        ReqPower = 10;
+        superSpeedBoost = 2.0f;
+        superSkillCtr = 0;
+
     }
 
     void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-        anim.SetBool("isGrounded", isGrounded);
+     /*   anim.SetBool("isGrounded", isGrounded);*/
 
         if (!isGrounded)
         {
             onWall = Physics2D.OverlapCircle(leftWallCheck.position, wallCheckRadius, whatIsGround) || Physics2D.OverlapCircle(rightWallCheck.position, wallCheckRadius, whatIsGround);
+
             if (onWall)
             {
                 /*
@@ -122,7 +132,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		
+        Debug.Log("POWER = " + Power);
+
+        if (CheckSuperSkillConditions())
+            EnableSuperSkill();
+        else
+            DisableSuperSkill();
+
         /*
         if (grounded)
         {
@@ -134,17 +150,10 @@ public class PlayerController : MonoBehaviour
             //Invoke("setHitGround", 0.1f);
             hitGround = false;
         }
-        
+
         else
         {
-            bool isFalling = false;
-            anim.SetBool("isFalling", isFalling);
-            /*
-            isJumping = false;
-            isWallJumping = false;
-            anim.SetBool("isJumping", isJumping);
-            anim.SetBool("isWallJumping", isWallJumping);
-            */
+            isFalling = false;
         }
 
 
@@ -186,7 +195,7 @@ public class PlayerController : MonoBehaviour
                 GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, -wallSlideSpeed);
             }
 
-            anim.SetBool("isWallJumping", wallSliding);
+     /*       anim.SetBool("isWallJumping", wallSliding);*/
         }
 
 
@@ -194,22 +203,15 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown(playerPrefix + "Jump") && isGrounded && !onWall)
         {
-			
-            //Debug.Log("JUMPING");
             isJumping = true;
             isWallJumping = false;
-            anim.SetBool("isJumping", isJumping);
-            anim.SetBool("isWallJumping", isWallJumping);
             Jump();
             //JumpDisableOtherAnim();
         }
         else if (Input.GetButtonDown(playerPrefix + "Jump") /*&& !isGrounded*/ && onWall)
         {
-            //Debug.Log("WALL JUMPING");
             isWallJumping = true;
             isJumping = false;
-            anim.SetBool("isWallJumping", isWallJumping);
-            anim.SetBool("isJumping", isJumping);
             WallJump();
             //JumpDisableOtherAnim();
         }
@@ -217,19 +219,14 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
             isWallJumping = false;
-         //   Debug.Log("NO JUMPING");
         }
 
-        anim.SetBool("isWalking", isWalking);
-        anim.SetBool("isRunning", isRunning);
-        anim.SetBool("isGrounded", isGrounded);
-        //}
 
         if (GetComponent<Rigidbody2D>().velocity.y < 0)
         {
-            bool isFalling = true;
-            anim.SetBool("isFalling", isFalling);
+            isFalling = true;
         }
+
 
         /*
         if (Input.GetKeyDown(KeyCode.Space) && !doubleJumped && !isGrounded)
@@ -241,13 +238,13 @@ public class PlayerController : MonoBehaviour
 
         //moveVelocity = 0f;
 
-        if (Input.GetButton(playerPrefix + "Dash"))
+        if (Input.GetButton(playerPrefix + "Dash") && !isUsingSuperFlight)
         {
-            moveVelocity = runSpeed * Input.GetAxisRaw(playerPrefix + "Horizontal");
+            moveVelocityH = runSpeed * Input.GetAxisRaw(playerPrefix + "Horizontal");
         }
         else
         {
-            moveVelocity = moveSpeed * Input.GetAxisRaw(playerPrefix + "Horizontal");
+            moveVelocityH = moveSpeed * Input.GetAxisRaw(playerPrefix + "Horizontal");
         }
 
         /*
@@ -282,27 +279,13 @@ public class PlayerController : MonoBehaviour
         */
 
 
-        if (Power >= 5)
-        {
-            Debug.Log("Enable SS");
-            Debug.Log("superSkillTimer:" + superSkillTimer);
-            Debug.Log("Time:" + Time.time);
-
-       /*     if (!startSuperSkill)
-                EnableSuperSkill();
-            else if (startSuperSkill && (superSkillTimer + 5) < Time.time)*/
-                EnableSuperSkill();
-        /*    else
-                DisableSuperSkill(); */
-        }
-        else
-            DisableSuperSkill();
-
-
         if (knockbackCount <= 0)
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
-        }
+            if (!isUsingSuperFlight)
+                GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocityH, GetComponent<Rigidbody2D>().velocity.y);
+            else
+                GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocityH, moveVelocityV);
+       }
         else
         {
             if (knockFromRight)
@@ -362,13 +345,18 @@ public class PlayerController : MonoBehaviour
         }
         */
 
+        // Update all the animation parameters (booleans)
+        SetAnimBool();
 
     }
 
     public void Jump()
     {
         Invoke("setHitGround", 0.1f);
-        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+     //   if (!isUsingSuperSpeed)
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+      /*  else
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight * superSpeedBoost * 1.5f);*/
         jumpSfx.Play();
     }
 
@@ -376,7 +364,10 @@ public class PlayerController : MonoBehaviour
     {
         Invoke("setHitGround", 0.1f);
         anim.SetTrigger("wallJump");
-        GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, jumpHeight);
+     //   if (!isUsingSuperSpeed)
+            GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, jumpHeight);
+     /*   else
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight * superSpeedBoost * 1.5f);*/
         Instantiate(hitGroundParticleEffect, groundCheck.transform.position + new Vector3(0, 0.5f, 0), groundCheck.transform.rotation);
         wallJumpSfx.Play();
         //GetComponent<Rigidbody2D>().AddForce(new Vector2(4000 * dirFacing, 500));
@@ -392,7 +383,7 @@ public class PlayerController : MonoBehaviour
     {
         // Add particles effect
         Instantiate(deathParticles, transform.position, transform.rotation);
-        
+
         // Make the gameObject disappear without killing it
         gameObject.SetActive(false);
 
@@ -402,8 +393,8 @@ public class PlayerController : MonoBehaviour
 
     public void Respawn()
     {
-       /* SpriteRenderer spriteRenderer = (SpriteRenderer) gameObject.GetComponentInChildren<SpriteRenderer>();
-        spriteRenderer.enabled = true;*/
+        /* SpriteRenderer spriteRenderer = (SpriteRenderer) gameObject.GetComponentInChildren<SpriteRenderer>();
+         spriteRenderer.enabled = true;*/
 
         // Reactivate the gameObject
         gameObject.SetActive(true);
@@ -420,17 +411,21 @@ public class PlayerController : MonoBehaviour
         trailRenderer.enabled = true;
 
         // Give speed boost
-        moveVelocity = moveVelocity * 5;
+        moveVelocityH = moveVelocityH * superSpeedBoost;
     }
 
     public void SuperFlight()
     {
+        // Read Up and Down arrow input
+        moveVelocityV = moveSpeed * Input.GetAxisRaw("Vertical");
+
         // Add a trail to show the use of a super skill
         TrailRenderer trailRenderer = gameObject.GetComponentInChildren<TrailRenderer>();
         trailRenderer.enabled = true;
 
         // Remove gravity
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
+
     }
 
     public void SuperTime()
@@ -444,7 +439,7 @@ public class PlayerController : MonoBehaviour
         if (!startSuperSkill)
         {
             startSuperSkill = true;
-            superSkillTimer = Time.time;
+            superSkillStartTime = Time.time;
         }
 
         // Super Speed
@@ -476,9 +471,6 @@ public class PlayerController : MonoBehaviour
         else
             isUsingSuperTime = false;
 
- /*       anim.SetBool("isUsingSuperSpeed", isUsingSuperSpeed);
-        anim.SetBool("isUsingSuperFlight", isUsingSuperFlight);
-        anim.SetBool("isUsingSuperTime", isUsingSuperTime);*/
     }
 
     public void DisableSuperSkill()
@@ -486,8 +478,12 @@ public class PlayerController : MonoBehaviour
         isUsingSuperFlight = false;
         isUsingSuperSpeed = false;
 
-        anim.SetBool("isUsingSuperFlight", isUsingSuperFlight);
-        anim.SetBool("isUsingSuperSpeed", isUsingSuperSpeed);
+        // Remove the superskill trail
+        TrailRenderer trailRenderer = gameObject.GetComponentInChildren<TrailRenderer>();
+        trailRenderer.enabled = false;
+
+        // Reset gravity to its orignal value
+        gameObject.GetComponent<Rigidbody2D>().gravityScale = oriGravityScale;
     }
 
     public void SuperFlightDisableOtherAnim()
@@ -497,13 +493,6 @@ public class PlayerController : MonoBehaviour
         isRunning = false;
         isJumping = false;
         isWallJumping = false;
-   //     isUsingSuperFlight = true;
-
-        anim.SetBool("isWalking", isWalking);
-        anim.SetBool("isRunning", isRunning);
-        anim.SetBool("isJumping", isJumping);
-        anim.SetBool("isWallJumping", isWallJumping);
-
     }
 
     public void JumpDisableOtherAnim()
@@ -511,40 +500,79 @@ public class PlayerController : MonoBehaviour
         // Disable other animations
         isWalking = false;
         isRunning = false;
-    //    isUsingSuperFlight = true;
-
-        anim.SetBool("isWalking", isWalking);
-        anim.SetBool("isRunning", isRunning);
-
     }
 
     public void AddPower(int newpowervalue)
     {
         Power += newpowervalue;
-		Debug.Log ("Player: " + playerNumber);
-		Debug.Log ("Prefix: " + playerPrefix);
-		if (playerNumber == 0) {
-			hud.increasePlayerOne (newpowervalue);
-		}
-		else if (playerNumber == 1) {
-			hud.increasePlayerTwo (newpowervalue);
-		}
-        
+        Debug.Log("Player: " + playerNumber);
+        Debug.Log("Prefix: " + playerPrefix);
+        if (playerNumber == 0)
+        {
+            hud.increasePlayerOne(newpowervalue);
+        }
+        else if (playerNumber == 1)
+        {
+            hud.increasePlayerTwo(newpowervalue);
+        }
+
     }
 
-    public void RemovePower(int powervalue)
+    public void ResetPower()
     {
-        Power -= powervalue;
+        // Reset Power Variable
+        Power = 0;
+
+        // Reset Power Bar in HUD
+        if (playerNumber == 0)
+        {
+            hud.resetPlayerOne();
+        }
+        else if (playerNumber == 1)
+        {
+            hud.resetPlayerTwo();
+        }
     }
 
-    public int GetPower()
+    void SetAnimBool()
     {
-        return Power;
+        anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isFalling", isFalling);
+        anim.SetBool("isWalking", isWalking);
+        anim.SetBool("isRunning", isRunning);
+        anim.SetBool("isJumping", isJumping);
+        anim.SetBool("isWallJumping", isWallJumping);
+        anim.SetBool("isUsingSuperFlight", isUsingSuperFlight);
+        anim.SetBool("isUsingSuperSpeed", isUsingSuperSpeed);
     }
 
-    public void UpdatePowerBar()
+    bool CheckSuperSkillConditions()
     {
-        
+        // Case 1: player has collected the required number of orbs to enable SS
+        if (!startSuperSkill && Power >= ReqPower)
+        {
+            startSuperSkill = true;
+            superSkillStartTime = Time.time;
+            return true;
+        }
+        // Case 2: SS is still enabled and has not reached the time limit
+        else if (startSuperSkill && Power >= ReqPower && Time.time <= superSkillStartTime + 5)
+        {
+            return true;
+        }
+        // Case 3: SS was enabled, but the player died or has reached the time limit
+        else if (startSuperSkill && (Power == 0 || Time.time > superSkillStartTime + 5))
+        {
+            startSuperSkill = false;
+            superSkillStartTime = -1;
+            superSkillCtr = 0;
+            ResetPower();
+
+            return false;
+        }
+        // Case 4: not enough orbs
+        else
+            return false;
     }
 
 
