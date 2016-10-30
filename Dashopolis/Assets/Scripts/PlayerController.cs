@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     bool isUsingSuperSpeed;
     bool isUsingSuperTime;
     bool startSuperSkill;
-
+    
     public Transform groundCheck;
     public float groundCheckRadius;
     public Transform leftWallCheck;
@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround;
     private int Power;
     private int ReqPower;
+    private int superSkillDuration;
 
     private HUDManager hud;
 
@@ -101,6 +102,7 @@ public class PlayerController : MonoBehaviour
         ReqPower = 10;
         superSpeedBoost = 2.0f;
         superSkillCtr = 0;
+        superSkillDuration = 5;
 
     }
 
@@ -553,15 +555,17 @@ public class PlayerController : MonoBehaviour
         {
             startSuperSkill = true;
             superSkillStartTime = Time.time;
+            superSkillCtr++;
             return true;
         }
         // Case 2: SS is still enabled and has not reached the time limit
-        else if (startSuperSkill && Power >= ReqPower && Time.time <= superSkillStartTime + 5)
+        else if (startSuperSkill && Power >= ReqPower && Time.time <= superSkillStartTime + superSkillDuration)
         {
+            DecreasePowerBar(Time.time);
             return true;
         }
         // Case 3: SS was enabled, but the player died or has reached the time limit
-        else if (startSuperSkill && (Power == 0 || Time.time > superSkillStartTime + 5))
+        else if (startSuperSkill && (Power == 0 || Time.time > superSkillStartTime + superSkillDuration))
         {
             startSuperSkill = false;
             superSkillStartTime = -1;
@@ -575,5 +579,22 @@ public class PlayerController : MonoBehaviour
             return false;
     }
 
+    void DecreasePowerBar(float currentTime)
+    {
+        float lowerBound = superSkillStartTime + superSkillCtr - 0.5f;
+        float upperBound = superSkillStartTime + superSkillCtr + 0.5f;
+        if (currentTime >= lowerBound && currentTime < upperBound)
+        {
+            if (playerNumber == 0)
+            {
+                hud.decreasePlayerOne(ReqPower / superSkillDuration);
+            }
+            else if (playerNumber == 1)
+            {
+                hud.decreasePlayerTwo(ReqPower / superSkillDuration);
+            }
 
+            superSkillCtr++;
+        }
+    } 
 }
