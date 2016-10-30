@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight;
     public float wallSlideSpeed;
     public int dirFacing;
+    bool isVisible;
     bool isWalking;
     bool isRunning;
     bool isJumping;
@@ -49,6 +50,8 @@ public class PlayerController : MonoBehaviour
     AudioSource jumpSfx;
     AudioSource groundedSfx;
     AudioSource wallJumpSfx;
+    AudioSource powerupSfx;
+    AudioSource deathSfx;
     bool hitGround;
     public GameObject hitGroundParticleEffect;
     private float oriGravityScale;
@@ -85,6 +88,7 @@ public class PlayerController : MonoBehaviour
         {
             playerPrefix = "P" + playerNumber + "_";
         }
+        isVisible = true;
         isWalking = false;
         isRunning = false;
         isJumping = false;
@@ -100,6 +104,8 @@ public class PlayerController : MonoBehaviour
         groundedSfx = audios[0];
         jumpSfx = audios[1];
         wallJumpSfx = audios[2];
+        powerupSfx = audios[3];
+        deathSfx = audios[4];
         hitGround = true;
         //anim = GetComponent<Animator>();
         ReqPower = 10;
@@ -137,168 +143,174 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (grounded)
+        if (isVisible)
         {
-            doubleJumped = false;
-        }
-        */
+            /*
+            if (grounded)
+               {
+                    doubleJumped = false;
+                }
+            */
 
-        if (!isGrounded)
-        {
-            //Invoke("setHitGround", 0.1f);
-            hitGround = false;
-        }
-
-        else
-        {
-            isFalling = false;
-        }
-
-
-        if (isGrounded && !hitGround)
-        {
-            groundedSfx.Play();
-            Instantiate(hitGroundParticleEffect, groundCheck.transform.position + new Vector3(0, 0.2f, 0), groundCheck.transform.rotation);
-            hitGround = true;
-        }
-
-        if (Input.GetAxisRaw(playerPrefix + "Horizontal") != 0)
-        {
-            isWalking = true;
-        }
-        else
-        {
-            isWalking = false;
-        }
-        if (Input.GetButton(playerPrefix + "Dash") && isWalking)
-        {
-            isRunning = true;
-            //isWalking = false;
-        }
-        else
-        {
-            isRunning = false;
-        }
-
-        bool wallSliding = false;
-
-        onWall = Physics2D.OverlapCircle(leftWallCheck.position, wallCheckRadius, whatIsGround) || Physics2D.OverlapCircle(rightWallCheck.position, wallCheckRadius, whatIsGround);
-
-        if (onWall && !isGrounded && GetComponent<Rigidbody2D>().velocity.y < 0)
-        {
-            wallSliding = true;
-
-            if (GetComponent<Rigidbody2D>().velocity.y < -wallSlideSpeed)
+            if (!isGrounded)
             {
-                GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, -wallSlideSpeed);
+                //Invoke("setHitGround", 0.1f);
+                hitGround = false;
             }
 
-     /*       anim.SetBool("isWallJumping", wallSliding);*/
-        }
+            else
+            {
+                isFalling = false;
+            }
 
 
-        //anim.SetBool("Grounded", grounded);
+            if (isGrounded && !hitGround)
+            {
+                groundedSfx.Play();
+                Instantiate(hitGroundParticleEffect, groundCheck.transform.position + new Vector3(0, 0.2f, 0), groundCheck.transform.rotation);
+                hitGround = true;
+            }
 
-        if (Input.GetButtonDown(playerPrefix + "Jump") && isGrounded && !onWall)
-        {
-            isJumping = true;
-            isWallJumping = false;
-            Jump();
-            //JumpDisableOtherAnim();
-        }
-        else if (Input.GetButtonDown(playerPrefix + "Jump") /*&& !isGrounded*/ && onWall)
-        {
-            isWallJumping = true;
-            isJumping = false;
-            WallJump();
-            //JumpDisableOtherAnim();
-        }
-        else
-        {
-            isJumping = false;
-            isWallJumping = false;
-        }
+            if (Input.GetAxisRaw(playerPrefix + "Horizontal") != 0)
+            {
+                isWalking = true;
+            }
+            else
+            {
+                isWalking = false;
+            }
+            if (Input.GetButton(playerPrefix + "Dash") && isWalking)
+            {
+                isRunning = true;
+                //isWalking = false;
+            }
+            else
+            {
+                isRunning = false;
+            }
+
+            bool wallSliding = false;
+
+            onWall = Physics2D.OverlapCircle(leftWallCheck.position, wallCheckRadius, whatIsGround) || Physics2D.OverlapCircle(rightWallCheck.position, wallCheckRadius, whatIsGround);
+
+            if (onWall && !isGrounded && GetComponent<Rigidbody2D>().velocity.y < 0)
+            {
+                wallSliding = true;
+
+                if (GetComponent<Rigidbody2D>().velocity.y < -wallSlideSpeed)
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, -wallSlideSpeed);
+                }
+
+                /*       anim.SetBool("isWallJumping", wallSliding);*/
+            }
 
 
-        if (GetComponent<Rigidbody2D>().velocity.y < 0)
-        {
-            isFalling = true;
-        }
+            //anim.SetBool("Grounded", grounded);
+
+            if (Input.GetButtonDown(playerPrefix + "Jump") && isGrounded && !onWall)
+            {
+                isJumping = true;
+                isWallJumping = false;
+                Jump();
+                //JumpDisableOtherAnim();
+            }
+            else if (Input.GetButtonDown(playerPrefix + "Jump") /*&& !isGrounded*/ && onWall)
+            {
+                isWallJumping = true;
+                isJumping = false;
+                WallJump();
+                //JumpDisableOtherAnim();
+            }
+            else
+            {
+                isJumping = false;
+                isWallJumping = false;
+            }
 
 
-        /*
-        if (Input.GetKeyDown(KeyCode.Space) && !doubleJumped && !isGrounded)
-        {
-            Jump();
-            doubleJumped = true;
-        }
-        */
+            if (GetComponent<Rigidbody2D>().velocity.y < 0)
+            {
+                isFalling = true;
+            }
 
-        //moveVelocity = 0f;
 
-        //  Running: available in all cases, except for SuperFlight
-        if (Input.GetButton(playerPrefix + "Dash") && !isUsingSuperFlight)
-            moveVelocityH = runSpeed * Input.GetAxisRaw(playerPrefix + "Horizontal");
-        // SuperSpeed min speed = runSpeed
-        else if (!Input.GetButton(playerPrefix + "Dash") && isUsingSuperSpeed)
-            moveVelocityH = runSpeed / superSpeedBoost * Input.GetAxisRaw(playerPrefix + "Horizontal");
-        // Walking
-        else
-            moveVelocityH = moveSpeed * Input.GetAxisRaw(playerPrefix + "Horizontal");
+            /*
+            if (Input.GetKeyDown(KeyCode.Space) && !doubleJumped && !isGrounded)
+            {
+                Jump();
+                doubleJumped = true;
+            }
+            */
 
-        // Manage the Super Skills add-ons
-        if (Input.GetButton(playerPrefix + "Skill") || startSuperSkill)
-        {
-            if (CheckSuperSkillConditions() || startSuperSkill)
-                EnableSuperSkill();
-            //else
+            //moveVelocity = 0f;
+
+            //  Running: available in all cases, except for SuperFlight
+            if (Input.GetButton(playerPrefix + "Dash") /*&& !isUsingSuperFlight*/)
+                moveVelocityH = runSpeed * Input.GetAxisRaw(playerPrefix + "Horizontal");
+            // SuperSpeed min speed = runSpeed
+            else if (!Input.GetButton(playerPrefix + "Dash") && isUsingSuperSpeed)
+                moveVelocityH = runSpeed / superSpeedBoost * Input.GetAxisRaw(playerPrefix + "Horizontal");
+            // Walking
+            else
+                moveVelocityH = moveSpeed * Input.GetAxisRaw(playerPrefix + "Horizontal");
+
+            // Manage the Super Skills add-ons
+            if (Input.GetButton(playerPrefix + "Skill") || startSuperSkill)
+            {
+                if (CheckSuperSkillConditions() || startSuperSkill)
+                    EnableSuperSkill();
+                //else
                 //DisableSuperSkill();
-        }
+            }
 
-        if (startSuperSkill && !UpdateSuperSkill())
-        {
-            DisableSuperSkill();
-        }
+            if (startSuperSkill && !UpdateSuperSkill())
+            {
+                DisableSuperSkill();
+            }
 
-        if (knockbackCount <= 0)
-        {
-            if (!isUsingSuperFlight)
-                GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocityH, GetComponent<Rigidbody2D>().velocity.y);
+            if (knockbackCount <= 0)
+            {
+                if (!isUsingSuperFlight)
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocityH, GetComponent<Rigidbody2D>().velocity.y);
+                else
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocityH, moveVelocityV);
+            }
             else
-                GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocityH, moveVelocityV);
-       }
+            {
+                if (knockFromRight)
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(-knockback, knockback);
+                }
+                else
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(knockback, knockback);
+                }
+                knockbackCount -= Time.deltaTime;
+            }
+
+            //anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
+
+            // if player is moving right
+            if (GetComponent<Rigidbody2D>().velocity.x > 0)
+            {
+                transform.localScale = new Vector3(1f, 1f, 1f);
+                dirFacing = -1;
+            }
+
+            else if (GetComponent<Rigidbody2D>().velocity.x < 0)
+            {
+                transform.localScale = new Vector3(-1f, 1f, 1f);
+                dirFacing = 1;
+            }
+
+            // Update all the animation parameters (booleans)
+            SetAnimBool();
+        }
         else
         {
-            if (knockFromRight)
-            {
-                GetComponent<Rigidbody2D>().velocity = new Vector2(-knockback, knockback);
-            }
-            else
-            {
-                GetComponent<Rigidbody2D>().velocity = new Vector2(knockback, knockback);
-            }
-            knockbackCount -= Time.deltaTime;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
-
-        //anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
-
-        // if player is moving right
-        if (GetComponent<Rigidbody2D>().velocity.x > 0)
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-            dirFacing = -1;
-        }
-
-        else if (GetComponent<Rigidbody2D>().velocity.x < 0)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-            dirFacing = 1;
-        }
-
-        // Update all the animation parameters (booleans)
-        SetAnimBool();
-
     }
 
     public void Jump()
@@ -332,16 +344,27 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        // Add particles effect
-        Instantiate(deathParticles, transform.position, transform.rotation);
+        if (isVisible)
+        {
+            deathSfx.Play();
+            // Add particles effect
+            Instantiate(deathParticles, transform.position, transform.rotation);
 
-        // Make the gameObject disappear without killing it
-        gameObject.SetActive(false);
+            // Make the gameObject disappear without killing it
+            SpriteRenderer[] srs = gameObject.GetComponentsInChildren<SpriteRenderer>();
 
-        Invoke("Respawn", 2);
+            foreach (SpriteRenderer sr in srs)
+            {
+                sr.enabled = false;
+            }
+            isVisible = false;
+            //gameObject.SetActive(false);
 
-        /*SpriteRenderer sprite_renderer = (SpriteRenderer) gameObject.GetComponentInChildren<SpriteRenderer>();
-        sprite_renderer.enabled = false;*/
+            Invoke("Respawn", 2);
+
+            /*SpriteRenderer sprite_renderer = (SpriteRenderer) gameObject.GetComponentInChildren<SpriteRenderer>();
+            sprite_renderer.enabled = false;*/
+        }
     }
 
     public void Respawn()
@@ -349,13 +372,6 @@ public class PlayerController : MonoBehaviour
         /* SpriteRenderer spriteRenderer = (SpriteRenderer) gameObject.GetComponentInChildren<SpriteRenderer>();
          spriteRenderer.enabled = true;*/
         Debug.Log("Player " + playerNumber + " Respawn");
-
-        /*
-        GameObject[] checkpoints;
-        checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
-        GameObject activeCheckpoint = checkpoints[0];
-        int checkpointIndex = 0;
-        */
 
         Transform[] cs = checkpoints.GetComponentsInChildren<Transform>();
         Transform activeCheckpoint = cs[0];
@@ -377,7 +393,14 @@ public class PlayerController : MonoBehaviour
         gameObject.transform.position = new Vector2(activeCheckpoint.position.x, activeCheckpoint.position.y);
 
         // Reactivate the gameObject
-        gameObject.SetActive(true);
+        //gameObject.SetActive(true);
+        SpriteRenderer[] srs = gameObject.GetComponentsInChildren<SpriteRenderer>();
+
+        foreach (SpriteRenderer sr in srs)
+        {
+            sr.enabled = true;
+        }
+        isVisible = true;
 
         // Add a trail to show the use of a super skill
         /*
@@ -399,7 +422,7 @@ public class PlayerController : MonoBehaviour
     public void SuperFlight()
     {
         // Read Up and Down arrow input
-        moveVelocityV = moveSpeed * Input.GetAxisRaw(playerPrefix + "Vertical");
+        moveVelocityV = moveSpeed * Input.GetAxisRaw(playerPrefix + "Vertical") * 1.5f;
 
         // Add a trail to show the use of a super skill
         TrailRenderer trailRenderer = gameObject.GetComponentInChildren<TrailRenderer>();
@@ -489,6 +512,8 @@ public class PlayerController : MonoBehaviour
         Power += newpowervalue;
         //Debug.Log("Player: " + playerNumber);
         //Debug.Log("Prefix: " + playerPrefix);
+        powerupSfx.Play();
+
         if (playerNumber == 0)
         {
             hud.increasePlayerOne(newpowervalue);
