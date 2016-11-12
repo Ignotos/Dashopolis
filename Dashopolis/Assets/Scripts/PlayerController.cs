@@ -113,6 +113,9 @@ public class PlayerController : MonoBehaviour
         superSkillCtr = 0;
         superSkillDuration = 5;
 
+		Debug.Log("P1 Ability: " + PlayerPrefs.GetInt("P1 Ability"));
+		Debug.Log("P2 Ability: " + PlayerPrefs.GetInt("P2 Ability"));
+
     }
 
     void FixedUpdate()
@@ -174,6 +177,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetAxisRaw(playerPrefix + "Horizontal") != 0)
             {
                 isWalking = true;
+
             }
             else
             {
