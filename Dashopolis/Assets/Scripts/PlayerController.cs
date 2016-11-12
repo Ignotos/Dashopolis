@@ -193,10 +193,10 @@ public class PlayerController : MonoBehaviour
                 isRunning = false;
             }
 
-            bool wallSliding = false;
+            //bool wallSliding = false;
 
             onWall = Physics2D.OverlapCircle(leftWallCheck.position, wallCheckRadius, whatIsGround) || Physics2D.OverlapCircle(rightWallCheck.position, wallCheckRadius, whatIsGround);
-
+            /*
             if (onWall && !isGrounded && GetComponent<Rigidbody2D>().velocity.y < 0)
             {
                 wallSliding = true;
@@ -206,8 +206,9 @@ public class PlayerController : MonoBehaviour
                     GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, -wallSlideSpeed);
                 }
 
-                /*       anim.SetBool("isWallJumping", wallSliding);*/
+                       anim.SetBool("isWallJumping", wallSliding);
             }
+            */
 
 
             //anim.SetBool("Grounded", grounded);
