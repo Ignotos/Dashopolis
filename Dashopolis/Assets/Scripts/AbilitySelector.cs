@@ -29,6 +29,8 @@ public class AbilitySelector : MonoBehaviour {
 	private Color pOneCol;
 	private Color pTwoCol;
 
+	private float timeInput;
+
 
 	// Use this for initialization
 	void Start () {
@@ -45,12 +47,14 @@ public class AbilitySelector : MonoBehaviour {
 		player1Ability = -1;
 		player2Ability = -1;
 
+		timeInput = 0;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-			
+		timeInput += Time.deltaTime;
 		if (Input.GetButtonDown ("KB_Horizontal") && Input.GetAxisRaw ("KB_Horizontal") >0 && player1Ability == -1) {
 			indexOne += 1;
 			if (indexOne >= sprites.Length)
@@ -72,25 +76,28 @@ public class AbilitySelector : MonoBehaviour {
 			player1Ability = indexOne + 1;
 		}
 
-		if (Input.GetButtonDown ("P1_Horizontal") && Input.GetAxisRaw ("P1_Horizontal") >0 && player2Ability == -1) {
+		if (timeInput > 0.3f && Input.GetAxisRaw ("P1_Horizontal") >0 && player2Ability == -1) {
 			indexTwo += 1;
 			if (indexTwo >= sprites.Length)
 				indexTwo = 0;
 
 			pTwo.sprite = sprites [indexTwo];
+			timeInput = 0;
 		}
 
-		if (Input.GetButtonDown ("P1_Horizontal") && Input.GetAxisRaw ("P1_Horizontal") <0 && player2Ability == -1) {
+		if (timeInput > 0.3f && Input.GetAxisRaw ("P1_Horizontal") <0 && player2Ability == -1) {
 			indexTwo += -1;
 			if (indexTwo < 0)
 				indexTwo = sprites.Length-1;
 			pTwo.sprite = sprites [indexTwo];
+			timeInput = 0;
 		}
 
 		if (Input.GetButtonDown ("P1_Jump")) {
 			pTwoCol = pTwo.material.color;
 			pTwo.material.color = Color.gray;
 			player2Ability = indexTwo + 1;
+			timeInput = 0;
 		}
 
 		if(player1Ability != -1 && player2Ability != -1){

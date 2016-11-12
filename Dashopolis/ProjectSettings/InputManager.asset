@@ -169,8 +169,8 @@ InputManager:
     m_Name: P1_Horizontal
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: joystick button 7
-    positiveButton: joystick button 5
+    negativeButton: 
+    positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -178,7 +178,7 @@ InputManager:
     sensitivity: 1
     snap: 0
     invert: 0
-    type: 0
+    type: 2
     axis: 0
     joyNum: 1
   - serializedVersion: 3
