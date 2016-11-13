@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 
     public int playerNumber; // player 1, player 2... (player 0 used for KB controls) 
     private string playerPrefix; // used to map inputs individually for each player 
+    public bool timeFreezeActivated;
 
     public GameObject checkpoints;
 
@@ -99,6 +100,7 @@ public class PlayerController : MonoBehaviour
         superSkillStartTime = -1;
         startSuperSkill = false;
         oriGravityScale = gameObject.GetComponent<Rigidbody2D>().gravityScale;
+        timeFreezeActivated = false;
 
         AudioSource[] audios = GetComponents<AudioSource>();
         groundedSfx = audios[0];
@@ -111,9 +113,16 @@ public class PlayerController : MonoBehaviour
         ReqPower = 10;
         superSpeedBoost = 2.0f;
         superSkillCtr = 0;
-        superSkillDuration = 5;
+        if (superSkill != 3)
+        {
+            superSkillDuration = 5;
+        }
+        else
+        {
+            superSkillDuration = 3;
+        }
 
-		Debug.Log("P1 Ability: " + PlayerPrefs.GetInt("P1 Ability"));
+        Debug.Log("P1 Ability: " + PlayerPrefs.GetInt("P1 Ability"));
 		Debug.Log("P2 Ability: " + PlayerPrefs.GetInt("P2 Ability"));
 
     }
@@ -146,7 +155,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isVisible)
+        if (isVisible && !timeFreezeActivated)
         {
             /*
             if (grounded)
@@ -441,6 +450,27 @@ public class PlayerController : MonoBehaviour
     public void SuperTime()
     {
         // Next iteration
+        CaveFlamePit.ActivateTimeFreeze();
+        Fireball.ActivateTimeFreeze();
+        DestroyByTime.ActivateTimeFreeze();
+        LaserBeam.ActivateTimeFreeze();
+        Saw.ActivateTimeFreeze();
+        LaserTurret.ActivateTimeFreeze();
+        SwingingBoulder[] sb = FindObjectsOfType<SwingingBoulder>();
+        sb[0].ActivateTimeFreeze();
+        sb[1].ActivateTimeFreeze();
+        RockController.ActivateTimeFreeze();
+        Turret.ActivateTimeFreeze();
+        PlayerController[] players = FindObjectsOfType<PlayerController>();
+        foreach(PlayerController p in players)
+        {
+            if (p.playerNumber != playerNumber)
+            {
+                p.timeFreezeActivated = true;
+                p.GetComponent<Rigidbody2D>().isKinematic = true;
+                p.anim.enabled = false;
+            }
+        }        
     }
 
     // Manage the Super Skills
@@ -487,6 +517,7 @@ public class PlayerController : MonoBehaviour
     {
         isUsingSuperFlight = false;
         isUsingSuperSpeed = false;
+        isUsingSuperTime = false;
 
         // Remove the superskill trail
         TrailRenderer trailRenderer = gameObject.GetComponentInChildren<TrailRenderer>();
@@ -494,6 +525,25 @@ public class PlayerController : MonoBehaviour
 
         // Reset gravity to its orignal value
         gameObject.GetComponent<Rigidbody2D>().gravityScale = oriGravityScale;
+
+        CaveFlamePit.DeactivateTimeFreeze();
+        Fireball.DeactivateTimeFreeze();
+        DestroyByTime.DeactivateTimeFreeze();
+        LaserBeam.DeactivateTimeFreeze();
+        Saw.DeactivateTimeFreeze();
+        LaserTurret.DeactivateTimeFreeze();
+        SwingingBoulder[] sb = FindObjectsOfType<SwingingBoulder>();
+        sb[0].DeactivateTimeFreeze();
+        sb[1].DeactivateTimeFreeze();
+        RockController.DeactivateTimeFreeze();
+        Turret.DeactivateTimeFreeze();
+        PlayerController[] players = FindObjectsOfType<PlayerController>();
+        foreach (PlayerController p in players)
+        {
+            p.timeFreezeActivated = false;
+            p.GetComponent<Rigidbody2D>().isKinematic = false;
+            p.anim.enabled = true;
+        }
     }
 
     public void SuperFlightDisableOtherAnim()
