@@ -684,6 +684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 0
+  timeFreezeActivated: 0
   checkpoints: {fileID: 0}
   moveSpeed: 5
   runSpeed: 12

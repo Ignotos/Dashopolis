@@ -38,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013965660934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 168.5, y: -12.5, z: 0}
-  m_LocalScale: {x: 0.33891296, y: 0.9842596, z: 1}
+  m_LocalPosition: {x: 5.07, y: -9.84834, z: 0.29000002}
+  m_LocalScale: {x: 0.75, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -111,7 +111,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5ffa242635d3db249a3b2e84cb1a511d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -127,7 +127,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300040, guid: efd713b67b1213a4593a72944ac033b4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300122, guid: efd713b67b1213a4593a72944ac033b4, type: 3}
+  m_Color: {r: 0, g: 1, b: 0.8344829, a: 0.478}
   m_FlipX: 0
   m_FlipY: 0

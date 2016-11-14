@@ -106,7 +106,7 @@ MonoBehaviour:
   player1: {fileID: 0}
   player2: {fileID: 0}
   singlePlayer: 0
-  zoomScalingFactor: 0.1
+  zoomScalingFactor: 0.01
 --- !u!124 &124000010206213672
 Behaviour:
   m_ObjectHideFlags: 1
