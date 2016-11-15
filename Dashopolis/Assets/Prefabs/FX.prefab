@@ -387,10 +387,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013638126692}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -46.921917, y: 41.196884, z: -7.114989}
+  m_LocalRotation: {x: 0.7054864, y: 0.047842707, z: 0.047842707, w: 0.7054864}
+  m_LocalPosition: {x: -45.05, y: 15.23, z: -7.114989}
   m_LocalScale: {x: 0.025, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 97.78198, y: -90, z: -90}
   m_Children: []
   m_Father: {fileID: 4000012855357958}
   m_RootOrder: 6
@@ -14235,7 +14235,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 2
-  randomSeed: -1956519460
+  randomSeed: 371496162
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -14387,8 +14387,8 @@ ParticleSystem:
         atime7: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 0.6313726, g: 0.6313726, b: 0.6313726, a: 0.34509805}
-      maxColor: {r: 0.30980393, g: 0.30980393, b: 0.30980393, a: 0.078431375}
+      minColor: {r: 0.6313726, g: 0.6313726, b: 0.6313726, a: 0.039215688}
+      maxColor: {r: 0.30980393, g: 0.30980393, b: 0.30980393, a: 0.09019608}
       minMaxState: 2
     startSize:
       scalar: 20
@@ -14582,7 +14582,7 @@ ParticleSystem:
       minMaxState: 3
     randomizeRotationDirection: 0
     gravityModifier: 0
-    maxNumParticles: 1000
+    maxNumParticles: 500
     size3D: 0
     rotation3D: 0
   ShapeModule:
@@ -14594,7 +14594,7 @@ ParticleSystem:
     length: 5
     boxX: 100
     boxY: 0
-    boxZ: 100
+    boxZ: 10
     arc: 360
     placementMode: 0
     m_Mesh: {fileID: 0}
@@ -21101,7 +21101,7 @@ ParticleSystem:
   moveWithTransform: 0
   autoRandomSeed: 1
   scalingMode: 2
-  randomSeed: -694818736
+  randomSeed: 206045526
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -24976,7 +24976,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 7911795df27dd464190eed77dda90191, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -24985,7 +24985,7 @@ ParticleSystemRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedWireframeHidden: 0
+  m_SelectedWireframeHidden: 1
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: efd713b67b1213a4593a72944ac033b4
-timeCreated: 1479105955
+timeCreated: 1479184847
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -66,6 +66,32 @@ TextureImporter:
     21300118: 8BIT_TILES_59
     21300120: 8BIT_TILES_60
     21300122: 8BIT_TILES_61
+    21300124: 8BIT_TILES_62
+    21300126: 8BIT_TILES_63
+    21300128: 8BIT_TILES_64
+    21300130: 8BIT_TILES_65
+    21300132: 8BIT_TILES_66
+    21300134: 8BIT_TILES_67
+    21300136: 8BIT_TILES_68
+    21300138: 8BIT_TILES_69
+    21300140: 8BIT_TILES_70
+    21300142: 8BIT_TILES_71
+    21300144: 8BIT_TILES_72
+    21300146: 8BIT_TILES_73
+    21300148: 8BIT_TILES_74
+    21300150: 8BIT_TILES_75
+    21300152: 8BIT_TILES_76
+    21300154: 8BIT_TILES_77
+    21300156: 8BIT_TILES_78
+    21300158: 8BIT_TILES_79
+    21300160: 8BIT_TILES_80
+    21300162: 8BIT_TILES_81
+    21300164: 8BIT_TILES_82
+    21300166: 8BIT_TILES_83
+    21300168: 8BIT_TILES_84
+    21300170: 8BIT_TILES_85
+    21300172: 8BIT_TILES_86
+    21300174: 8BIT_TILES_88
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -123,7 +149,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -136,7 +162,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -149,7 +175,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -162,7 +188,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -175,7 +201,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -188,7 +214,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -201,7 +227,7 @@ TextureImporter:
         width: 7
         height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -214,7 +240,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -227,7 +253,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -240,7 +266,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -253,7 +279,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -266,7 +292,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -279,7 +305,7 @@ TextureImporter:
         width: 8
         height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -290,9 +316,9 @@ TextureImporter:
         x: 24
         y: 368
         width: 8
-        height: 7
+        height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -305,7 +331,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -318,7 +344,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -331,7 +357,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -344,7 +370,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -357,7 +383,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -370,7 +396,7 @@ TextureImporter:
         width: 6
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -378,10 +404,10 @@ TextureImporter:
       name: 8BIT_TILES_20
       rect:
         serializedVersion: 2
-        x: 168
-        y: 368
+        x: 152
+        y: 328
         width: 8
-        height: 8
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -391,12 +417,12 @@ TextureImporter:
       name: 8BIT_TILES_21
       rect:
         serializedVersion: 2
-        x: 8
-        y: 352
+        x: 168
+        y: 368
         width: 8
-        height: 7
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -404,12 +430,12 @@ TextureImporter:
       name: 8BIT_TILES_22
       rect:
         serializedVersion: 2
-        x: 24
+        x: 8
         y: 352
         width: 8
         height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -417,12 +443,12 @@ TextureImporter:
       name: 8BIT_TILES_23
       rect:
         serializedVersion: 2
-        x: 40
+        x: 24
         y: 352
         width: 8
-        height: 8
+        height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -430,12 +456,12 @@ TextureImporter:
       name: 8BIT_TILES_24
       rect:
         serializedVersion: 2
-        x: 56
+        x: 40
         y: 352
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -443,12 +469,12 @@ TextureImporter:
       name: 8BIT_TILES_25
       rect:
         serializedVersion: 2
-        x: 72
+        x: 56
         y: 352
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -456,12 +482,12 @@ TextureImporter:
       name: 8BIT_TILES_26
       rect:
         serializedVersion: 2
-        x: 136
+        x: 72
         y: 352
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -469,12 +495,12 @@ TextureImporter:
       name: 8BIT_TILES_27
       rect:
         serializedVersion: 2
-        x: 232
+        x: 88
         y: 352
-        width: 16
-        height: 16
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -482,12 +508,12 @@ TextureImporter:
       name: 8BIT_TILES_28
       rect:
         serializedVersion: 2
-        x: 8
-        y: 336
+        x: 104
+        y: 352
         width: 8
-        height: 7
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -495,12 +521,12 @@ TextureImporter:
       name: 8BIT_TILES_29
       rect:
         serializedVersion: 2
-        x: 24
-        y: 336
+        x: 136
+        y: 352
         width: 8
-        height: 7
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -508,12 +534,12 @@ TextureImporter:
       name: 8BIT_TILES_30
       rect:
         serializedVersion: 2
-        x: 40
-        y: 336
-        width: 8
-        height: 8
+        x: 232
+        y: 352
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -521,12 +547,12 @@ TextureImporter:
       name: 8BIT_TILES_31
       rect:
         serializedVersion: 2
-        x: 56
+        x: 8
         y: 336
         width: 8
-        height: 8
+        height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -534,12 +560,12 @@ TextureImporter:
       name: 8BIT_TILES_32
       rect:
         serializedVersion: 2
-        x: 72
+        x: 24
         y: 336
         width: 8
-        height: 8
+        height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -547,12 +573,12 @@ TextureImporter:
       name: 8BIT_TILES_33
       rect:
         serializedVersion: 2
-        x: 88
+        x: 40
         y: 336
-        width: 7
-        height: 6
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -560,12 +586,12 @@ TextureImporter:
       name: 8BIT_TILES_34
       rect:
         serializedVersion: 2
-        x: 104
+        x: 56
         y: 336
-        width: 7
-        height: 7
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -573,12 +599,12 @@ TextureImporter:
       name: 8BIT_TILES_35
       rect:
         serializedVersion: 2
-        x: 137
+        x: 72
         y: 336
-        width: 5
-        height: 7
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -586,12 +612,12 @@ TextureImporter:
       name: 8BIT_TILES_36
       rect:
         serializedVersion: 2
-        x: 192
-        y: 319
-        width: 25
-        height: 33
+        x: 88
+        y: 336
+        width: 7
+        height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -599,12 +625,12 @@ TextureImporter:
       name: 8BIT_TILES_37
       rect:
         serializedVersion: 2
-        x: 8
-        y: 320
-        width: 8
+        x: 104
+        y: 336
+        width: 7
         height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -612,12 +638,12 @@ TextureImporter:
       name: 8BIT_TILES_38
       rect:
         serializedVersion: 2
-        x: 24
-        y: 320
-        width: 8
+        x: 137
+        y: 336
+        width: 5
         height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -625,12 +651,12 @@ TextureImporter:
       name: 8BIT_TILES_39
       rect:
         serializedVersion: 2
-        x: 40
-        y: 320
-        width: 8
-        height: 8
+        x: 192
+        y: 319
+        width: 25
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -638,12 +664,12 @@ TextureImporter:
       name: 8BIT_TILES_40
       rect:
         serializedVersion: 2
-        x: 56
+        x: 8
         y: 320
         width: 8
-        height: 8
+        height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -651,12 +677,12 @@ TextureImporter:
       name: 8BIT_TILES_41
       rect:
         serializedVersion: 2
-        x: 72
+        x: 24
         y: 320
         width: 8
-        height: 8
+        height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -664,12 +690,12 @@ TextureImporter:
       name: 8BIT_TILES_42
       rect:
         serializedVersion: 2
-        x: 88
+        x: 40
         y: 320
-        width: 7
-        height: 6
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -677,12 +703,12 @@ TextureImporter:
       name: 8BIT_TILES_43
       rect:
         serializedVersion: 2
-        x: 104
+        x: 56
         y: 320
-        width: 7
-        height: 7
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -690,12 +716,12 @@ TextureImporter:
       name: 8BIT_TILES_44
       rect:
         serializedVersion: 2
-        x: 136
+        x: 72
         y: 320
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -703,12 +729,12 @@ TextureImporter:
       name: 8BIT_TILES_45
       rect:
         serializedVersion: 2
-        x: 24
-        y: 304
-        width: 8
-        height: 8
+        x: 88
+        y: 320
+        width: 7
+        height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -716,12 +742,12 @@ TextureImporter:
       name: 8BIT_TILES_46
       rect:
         serializedVersion: 2
-        x: 40
-        y: 304
-        width: 8
-        height: 8
+        x: 104
+        y: 320
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -729,12 +755,12 @@ TextureImporter:
       name: 8BIT_TILES_47
       rect:
         serializedVersion: 2
-        x: 56
-        y: 304
+        x: 136
+        y: 320
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -742,12 +768,12 @@ TextureImporter:
       name: 8BIT_TILES_48
       rect:
         serializedVersion: 2
-        x: 72
-        y: 304
-        width: 8
-        height: 8
+        x: 9
+        y: 299
+        width: 10
+        height: 17
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -755,12 +781,12 @@ TextureImporter:
       name: 8BIT_TILES_49
       rect:
         serializedVersion: 2
-        x: 88
-        y: 305
+        x: 24
+        y: 304
         width: 8
-        height: 6
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -768,12 +794,12 @@ TextureImporter:
       name: 8BIT_TILES_50
       rect:
         serializedVersion: 2
-        x: 104
+        x: 40
         y: 304
         width: 8
-        height: 7
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -781,12 +807,12 @@ TextureImporter:
       name: 8BIT_TILES_51
       rect:
         serializedVersion: 2
-        x: 136
+        x: 56
         y: 304
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -794,12 +820,12 @@ TextureImporter:
       name: 8BIT_TILES_52
       rect:
         serializedVersion: 2
-        x: 8
-        y: 288
+        x: 72
+        y: 304
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -807,12 +833,12 @@ TextureImporter:
       name: 8BIT_TILES_53
       rect:
         serializedVersion: 2
-        x: 24
-        y: 288
+        x: 88
+        y: 305
         width: 8
-        height: 8
+        height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -820,12 +846,12 @@ TextureImporter:
       name: 8BIT_TILES_54
       rect:
         serializedVersion: 2
-        x: 88
-        y: 288
-        width: 10
-        height: 6
+        x: 104
+        y: 304
+        width: 8
+        height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -833,12 +859,12 @@ TextureImporter:
       name: 8BIT_TILES_55
       rect:
         serializedVersion: 2
-        x: 104
-        y: 288
-        width: 10
-        height: 6
+        x: 136
+        y: 304
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -846,10 +872,10 @@ TextureImporter:
       name: 8BIT_TILES_56
       rect:
         serializedVersion: 2
-        x: 8
-        y: 272
+        x: 152
+        y: 280
         width: 8
-        height: 8
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -859,17 +885,95 @@ TextureImporter:
       name: 8BIT_TILES_57
       rect:
         serializedVersion: 2
-        x: 25
-        y: 272
-        width: 6
+        x: 8
+        y: 288
+        width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: 8BIT_TILES_58
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 288
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_59
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 290
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_60
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 290
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_61
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 288
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_62
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 288
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_63
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 288
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_64
       rect:
         serializedVersion: 2
         x: 192
@@ -882,20 +986,280 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 8BIT_TILES_59
+      name: 8BIT_TILES_65
       rect:
         serializedVersion: 2
-        x: 227
-        y: 225
-        width: 31
-        height: 30
+        x: 8
+        y: 272
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_66
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 272
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_67
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 272
+        width: 40
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_68
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 268
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_69
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 270
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_70
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 275
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_71
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 258
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_72
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 259
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_73
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 256
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_74
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 216
+        width: 8
+        height: 56
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 8BIT_TILES_60
+      name: 8BIT_TILES_75
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 242
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_76
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 240
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_77
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 240
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_78
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 238
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_79
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 236
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_80
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 225
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_81
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 226
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_82
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 224
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_83
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 224
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 137
+        width: 128
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_85
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 200
+        width: 24
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_86
       rect:
         serializedVersion: 2
         x: 229
@@ -903,20 +1267,20 @@ TextureImporter:
         width: 26
         height: 26
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 8BIT_TILES_61
+      name: 8BIT_TILES_88
       rect:
         serializedVersion: 2
-        x: 9
-        y: 300
-        width: 10
-        height: 16
+        x: 0
+        y: 9
+        width: 256
+        height: 143
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
