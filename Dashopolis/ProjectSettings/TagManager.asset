@@ -11,6 +11,7 @@ TagManager:
   - Player_1
   - Ground
   - Checkpoint
+  - FX
   layers:
   - Default
   - TransparentFX
