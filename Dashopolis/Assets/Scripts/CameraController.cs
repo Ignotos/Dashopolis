@@ -4,6 +4,7 @@ using System.Collections;
 public class CameraController : MonoBehaviour {
 
     public Transform player1;
+    public float xMin, xMax, yMin, yMax;
     public Transform player2;
     public bool singlePlayer;
     public float zoomScalingFactor; 
@@ -65,5 +66,15 @@ public class CameraController : MonoBehaviour {
         {
             gameObject.transform.position = new Vector3(player1.position.x, player1.position.y, gameObject.transform.position.z);
         }
+
+
+    }
+
+    void LateUpdate()
+    {
+        var v3 = transform.position;
+        v3.x = Mathf.Clamp(v3.x, xMin, xMax);
+        v3.y = Mathf.Clamp(v3.y, yMin, yMax);
+        transform.position = v3;
     }
 }
