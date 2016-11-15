@@ -462,7 +462,7 @@ public class PlayerController : MonoBehaviour
         RockController.ActivateTimeFreeze();
         Turret.ActivateTimeFreeze();
         PlayerController[] players = FindObjectsOfType<PlayerController>();
-        foreach(PlayerController p in players)
+        foreach (PlayerController p in players)
         {
             if (p.playerNumber != playerNumber)
             {
@@ -470,7 +470,12 @@ public class PlayerController : MonoBehaviour
                 p.GetComponent<Rigidbody2D>().isKinematic = true;
                 p.anim.enabled = false;
             }
-        }        
+        }
+        GameObject[] FXs = GameObject.FindGameObjectsWithTag("FX");
+        foreach (GameObject fx in FXs)
+        {
+            fx.GetComponent<ParticleSystem>().Pause();
+        }
     }
 
     // Manage the Super Skills
@@ -543,6 +548,11 @@ public class PlayerController : MonoBehaviour
             p.timeFreezeActivated = false;
             p.GetComponent<Rigidbody2D>().isKinematic = false;
             p.anim.enabled = true;
+        }
+        GameObject[] FXs = GameObject.FindGameObjectsWithTag("FX");
+        foreach (GameObject fx in FXs)
+        {
+            fx.GetComponent<ParticleSystem>().Play();
         }
     }
 
