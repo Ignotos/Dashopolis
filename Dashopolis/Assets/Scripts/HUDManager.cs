@@ -13,14 +13,25 @@ public class HUDManager : MonoBehaviour {
 	int minutes;
 	float totalTime;
 
+	ParticleSystem p1;
+	ParticleSystem p2;
+
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		Slider[] s = transform.parent.GetComponentsInChildren<Slider> ();
 		timeCounter = transform.parent.GetComponentsInChildren<Text> ()[1];
 		pOne = s [0];
 		pTwo = s [1];
         Debug.Log("START UI VALUE: " + pOne.value);
 		timeCounter.text = "";
+
+		ParticleSystem[] ps = GameObject.Find ("HUDParticle").GetComponentsInChildren<ParticleSystem> ();
+
+		p1 = ps [0];
+		p2 = ps [1];
+
+		p1.Stop ();
+		p2.Stop ();
 	}
 	
 	// Update is called once per frame
@@ -37,18 +48,26 @@ public class HUDManager : MonoBehaviour {
 
 	public void increasePlayerOne(int p){
 		pOne.value += p;
+
+		if ((int)pOne.value == pOne.maxValue)
+			p1.Play ();
 	}
 
 	public void increasePlayerTwo(int p){
 		pTwo.value += p;
+
+		if ((int)pTwo.value == pTwo.maxValue)
+			p2.Play ();
 	}
 
 	public void resetPlayerOne(){
         pOne.value = 0;
+		p1.Stop ();
 	}
 
 	public void resetPlayerTwo(){
         pTwo.value = 0;
+		p2.Stop ();
 	}
 
     public void decreasePlayerOne(int p)
