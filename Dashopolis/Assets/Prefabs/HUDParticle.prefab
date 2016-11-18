@@ -312,7 +312,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.37254903, g: 0.84705883, b: 0.43529412, a: 1}
+      maxColor: {r: 0.31764707, g: 0.8156863, b: 0.38431373, a: 1}
       minMaxState: 0
     startSize:
       scalar: 1
@@ -526,7 +526,7 @@ ParticleSystem:
       minMaxState: 0
     randomizeRotationDirection: 0
     gravityModifier: 0
-    maxNumParticles: 2000
+    maxNumParticles: 8000
     size3D: 0
     rotation3D: 0
   ShapeModule:
@@ -536,7 +536,7 @@ ParticleSystem:
     radius: 1
     angle: 25
     length: 5
-    boxX: 10.9543
+    boxX: 10
     boxY: 1.5
     boxZ: 1
     arc: 360
@@ -2065,7 +2065,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.95686275, g: 0.44313726, b: 0.44313726, a: 1}
+      maxColor: {r: 0.95686275, g: 0.45490196, b: 0.45490196, a: 1}
       minMaxState: 0
     startSize:
       scalar: 1
@@ -2279,7 +2279,7 @@ ParticleSystem:
       minMaxState: 0
     randomizeRotationDirection: 0
     gravityModifier: 0
-    maxNumParticles: 2000
+    maxNumParticles: 8000
     size3D: 0
     rotation3D: 0
   ShapeModule:
@@ -2289,7 +2289,7 @@ ParticleSystem:
     radius: 1
     angle: 25
     length: 5
-    boxX: 10.9543
+    boxX: 10
     boxY: 1.5
     boxZ: 1
     arc: 360
@@ -2307,7 +2307,7 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 1900
+      scalar: 4000
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3741,7 +3741,7 @@ RectTransform:
   m_GameObject: {fileID: 1000011899854748}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 1.4, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 224000010608365932}
@@ -3759,7 +3759,7 @@ RectTransform:
   m_GameObject: {fileID: 1000013733250338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.81249994, z: 1}
+  m_LocalScale: {x: 1.4, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 224000010608365932}
