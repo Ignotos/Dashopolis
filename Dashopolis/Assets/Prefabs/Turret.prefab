@@ -83,8 +83,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1000013965660934, guid: 688c9e324eaf2bf4c88ec00eb277fd4c, type: 2}
   projectileSpawnPoint: {fileID: 4000014217982682}
-  fireRate: 0
-  delay: 0
+  fireRate: 1
+  delay: 1
 --- !u!212 &212000014220811960
 SpriteRenderer:
   m_ObjectHideFlags: 1

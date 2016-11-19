@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012383855210}
   - 212: {fileID: 212000011471012564}
+  - 61: {fileID: 61000010516598434}
   m_Layer: 8
   m_Name: 1x7
   m_TagString: Untagged
@@ -40,6 +41,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &61000010516598434
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010921652970}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 7}
 --- !u!212 &212000011471012564
 SpriteRenderer:
   m_ObjectHideFlags: 1
