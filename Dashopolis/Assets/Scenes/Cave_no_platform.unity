@@ -620,12 +620,12 @@ Prefab:
     - target: {fileID: 224000013283280416, guid: af70d68b1ce46486097019b7fd216ffd,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224000010425484044, guid: af70d68b1ce46486097019b7fd216ffd,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224000012277232036, guid: af70d68b1ce46486097019b7fd216ffd,
         type: 2}
