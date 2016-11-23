@@ -2,6 +2,11 @@
 using System.Collections;
 
 public class CameraController : MonoBehaviour {
+/*
+TILE SETTINGS:
+hex: 30BDBDFF
+shader: Sprites/Diffuse
+*/
 
     public Transform player1;
     public float xMin, xMax, yMin, yMax;
