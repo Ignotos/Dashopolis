@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 2016-11-23 5:06:30 PM-->
+<!--Last exported: 2016-11-23 6:37:42 PM-->
 <Tiled2Unity version="1.0.7.10">
   <AssignMaterial mesh="mesh_0001" material="Jungle_terrain" />
   <AssignMaterial mesh="mesh_0002" material="plant repack" />
@@ -54,21 +54,11 @@
       <GameObject name="terrain" copy="mesh_0014" sortingLayerName="" sortingOrder="4" opacity="1" />
       <GameObject name="Collision">
         <PolygonCollider2D>
-          <Path>332,-25 341,-25 341,-24 332,-24</Path>
-          <Path>344,-24 342,-24 342,-25 344,-25</Path>
-          <Path>322,-25 331,-25 331,-24 322,-24</Path>
-          <Path>312,-25 321,-25 321,-24 312,-24</Path>
-          <Path>302,-25 311,-25 311,-24 302,-24</Path>
-          <Path>61,-26 71,-26 71,-25 61,-25</Path>
-          <Path>366,-28 373,-28 373,-27 366,-27</Path>
-          <Path>126,-28 136,-28 136,-27 126,-27</Path>
-          <Path>113,-28 122,-28 122,-27 113,-27</Path>
-          <Path>125,-27 123,-27 123,-28 125,-28</Path>
-          <Path>103,-28 112,-28 112,-27 103,-27</Path>
-          <Path>93,-28 102,-28 102,-27 93,-27</Path>
-          <Path>83,-28 92,-28 92,-27 83,-27</Path>
-          <Path>27,-27 20,-27 20,-28 27,-28</Path>
-          <Path>19,-27 17,-27 17,-28 19,-28</Path>
+          <Path>300,-25 344,-25 344,-24 300,-24</Path>
+          <Path>59,-26 71,-26 71,-25 59,-25</Path>
+          <Path>365,-28 373,-28 373,-27 365,-27</Path>
+          <Path>81,-28 136,-28 136,-27 81,-27</Path>
+          <Path>17,-28 27,-28 27,-27 17,-27</Path>
         </PolygonCollider2D>
       </GameObject>
     </GameObject>
