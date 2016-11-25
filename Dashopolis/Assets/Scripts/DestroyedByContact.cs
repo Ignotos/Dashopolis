@@ -7,6 +7,7 @@ public class DestroyedByContact : MonoBehaviour {
     public int Powervalue;
 	private PlayerController player;
 
+	
     void OnTriggerEnter2D(Collider2D other)
     { 
 		if (other.gameObject.CompareTag("Player"))
