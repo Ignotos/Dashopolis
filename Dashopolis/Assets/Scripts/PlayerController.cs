@@ -83,10 +83,12 @@ public class PlayerController : MonoBehaviour
 
         if (playerNumber == 0)
         {
+			superSkill = PlayerPrefs.GetInt ("P1 Ability");
             playerPrefix = "KB_";
         }
         else
         {
+			superSkill = PlayerPrefs.GetInt ("P2 Ability");
             playerPrefix = "P" + playerNumber + "_";
         }
         isVisible = true;
@@ -121,6 +123,7 @@ public class PlayerController : MonoBehaviour
         {
             superSkillDuration = 3;
         }
+			 
 
         Debug.Log("P1 Ability: " + PlayerPrefs.GetInt("P1 Ability"));
 		Debug.Log("P2 Ability: " + PlayerPrefs.GetInt("P2 Ability"));
