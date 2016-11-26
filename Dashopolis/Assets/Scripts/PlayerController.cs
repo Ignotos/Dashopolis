@@ -164,7 +164,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
         bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
-        if (!onScreen)
+        if (!onScreen && !Camera.main.GetComponent<CameraController>().singlePlayer)
         {
             Debug.Log("Player " + playerNumber + " is out of bounds.");
             offScreen = true;
