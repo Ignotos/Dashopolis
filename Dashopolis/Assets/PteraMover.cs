@@ -19,7 +19,7 @@ public class PteraMover : MonoBehaviour {
 		if (!timeFreezeActivated) {
 			//transform.Translate (Vector2.left * 5 * Time.deltaTime);
 			rb.velocity = Vector2.left * 20 ;//* Time.deltaTime;
-			Debug.Log(rb.position.x);
+			//Debug.Log(rb.position.x);
 			if (rb.position.x < yMin)
 				Destroy (this.gameObject);
 

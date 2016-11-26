@@ -24,7 +24,7 @@ public class Arrow : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-		Debug.Log("ARROW X");
+		//Debug.Log("ARROW X");
         Destroy(gameObject);
     }
 

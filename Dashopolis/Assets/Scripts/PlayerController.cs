@@ -76,6 +76,8 @@ public class PlayerController : MonoBehaviour
     private int superSkillCtr;
     private float superSpeedBoost;
 
+    private bool offScreen;
+
     // Use this for initialization
     void Start()
     {
@@ -128,6 +130,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log("P1 Ability: " + PlayerPrefs.GetInt("P1 Ability"));
 		Debug.Log("P2 Ability: " + PlayerPrefs.GetInt("P2 Ability"));
 
+        offScreen = false;
+
     }
 
     void FixedUpdate()
@@ -158,6 +162,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
+        bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+        if (!onScreen)
+        {
+            Debug.Log("Player " + playerNumber + " is out of bounds.");
+            offScreen = true;
+            Die();
+        }
         if (isVisible && !timeFreezeActivated)
         {
             /*
@@ -393,19 +405,45 @@ public class PlayerController : MonoBehaviour
         Transform[] cs = checkpoints.GetComponentsInChildren<Transform>();
         Transform activeCheckpoint = cs[0];
 
-        foreach (Transform t in cs)
+        if (!offScreen)
         {
-            if (t.position.x < gameObject.transform.position.x)
+            foreach (Transform t in cs)
             {
-                //Debug.Log(checkpointIndex);
-                activeCheckpoint = t;
-                //checkpointIndex++;
-            }
-            else
-            {
-                break;
+                if (t.position.x < gameObject.transform.position.x)
+                {
+                    //Debug.Log(checkpointIndex);
+                    activeCheckpoint = t;
+                    //checkpointIndex++;
+                }
+                else
+                {
+                    break;
+                }
             }
         }
+        else
+        {
+            // respawn at the leftmost checkpoint visible to the camera  
+            double VerticalHeightSeen = Camera.main.orthographicSize * 2.0;
+            double HorizontalWidthSeen = VerticalHeightSeen * Screen.width / Screen.height;
+
+            Debug.Log("Vertical Height Seen: " + VerticalHeightSeen);
+            Debug.Log("Horizontal Width Seen: " + HorizontalWidthSeen);
+
+            double HalfWidth = HorizontalWidthSeen;
+            foreach (Transform t in cs)
+            {
+                Vector3 screenPoint = Camera.main.WorldToViewportPoint(t.position);
+                bool checkpointVisible = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+                if (checkpointVisible)
+                {
+                    activeCheckpoint = t;
+                    break;
+                }
+            }
+        }
+
+        offScreen = false;
 
         gameObject.transform.position = new Vector2(activeCheckpoint.position.x, activeCheckpoint.position.y);
 
@@ -674,4 +712,11 @@ public class PlayerController : MonoBehaviour
             superSkillCtr++;
         }
     } 
+    /*
+    void OnBecameInvisible() {
+        Debug.Log("Player " + playerNumber + " is out of bounds.");
+        offScreen = true;
+        Die();
+    }
+    */
 }
