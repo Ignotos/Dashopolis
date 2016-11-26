@@ -26,6 +26,9 @@ public class AbilitySelector : MonoBehaviour {
 	private int indexOne;
 	private int indexTwo;
 
+	AudioSource selector;
+	AudioSource selection;
+
 	private Color pOneCol;
 	private Color pTwoCol;
 
@@ -49,6 +52,9 @@ public class AbilitySelector : MonoBehaviour {
 
 		timeInput = 0;
 
+		selector = GetComponents<AudioSource> ()[0];
+		selection = GetComponents<AudioSource> ()[1];
+
 	}
 	
 	// Update is called once per frame
@@ -61,6 +67,7 @@ public class AbilitySelector : MonoBehaviour {
 				indexOne = 0;
 			
 			pOne.sprite = sprites [indexOne];
+			selector.Play ();
 		}
 
 		if (Input.GetButtonDown ("KB_Horizontal") && Input.GetAxisRaw ("KB_Horizontal") <0 && player1Ability == -1) {
@@ -68,12 +75,14 @@ public class AbilitySelector : MonoBehaviour {
 			if (indexOne < 0)
 				indexOne = sprites.Length-1;
 			pOne.sprite = sprites [indexOne];
+			selector.Play ();
 		}
 
 		if (Input.GetButtonDown ("KB_Jump")) {
 			pOneCol = pOne.material.color;
 			pOne.material.color = Color.gray;
 			player1Ability = indexOne + 1;
+			selection.Play ();
 		}
 
 		if (timeInput > 0.3f && Input.GetAxisRaw ("P1_Horizontal") >0 && player2Ability == -1) {
@@ -83,6 +92,7 @@ public class AbilitySelector : MonoBehaviour {
 
 			pTwo.sprite = sprites [indexTwo];
 			timeInput = 0;
+			selector.Play ();
 		}
 
 		if (timeInput > 0.3f && Input.GetAxisRaw ("P1_Horizontal") <0 && player2Ability == -1) {
@@ -91,6 +101,7 @@ public class AbilitySelector : MonoBehaviour {
 				indexTwo = sprites.Length-1;
 			pTwo.sprite = sprites [indexTwo];
 			timeInput = 0;
+			selector.Play ();
 		}
 
 		if (Input.GetButtonDown ("P1_Jump")) {
@@ -98,6 +109,7 @@ public class AbilitySelector : MonoBehaviour {
 			pTwo.material.color = Color.gray;
 			player2Ability = indexTwo + 1;
 			timeInput = 0;
+			selection.Play ();
 		}
 
 		if(player1Ability != -1 && player2Ability != -1){
