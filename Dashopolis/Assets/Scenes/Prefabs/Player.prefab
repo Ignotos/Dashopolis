@@ -107,7 +107,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012835150394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: -14.33, z: 0}
+  m_LocalPosition: {x: -393, y: -24.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -708,6 +708,8 @@ MonoBehaviour:
   knockbackCount: 0
   deathParticles: {fileID: 164672, guid: 9cf83ab96114906489d601382dec2336, type: 2}
   superSkill: 1
+  onRope: 0
+  climbSpeed: 5
 --- !u!212 &212000011776815384
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -736,7 +738,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 0.099999964, b: 0.099999964, a: 1}
   m_FlipX: 0

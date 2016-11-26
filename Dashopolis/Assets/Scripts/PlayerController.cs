@@ -77,6 +77,9 @@ public class PlayerController : MonoBehaviour
     private float superSpeedBoost;
 
     private bool offScreen;
+    public bool onRope;
+    public float climbSpeed;
+    private float climbVelocity;
 
     // Use this for initialization
     void Start()
@@ -131,7 +134,7 @@ public class PlayerController : MonoBehaviour
 		Debug.Log("P2 Ability: " + PlayerPrefs.GetInt("P2 Ability"));
 
         offScreen = false;
-
+        onRope = false;
     }
 
     void FixedUpdate()
@@ -162,6 +165,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (onRope)
+        {
+            GetComponent<Rigidbody2D>().gravityScale = 0;
+            climbVelocity = climbSpeed * Input.GetAxisRaw(playerPrefix + "Vertical");
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, climbVelocity);
+        }
+        else
+        {
+            GetComponent<Rigidbody2D>().gravityScale = oriGravityScale;
+        }
+
         Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
         bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
         if (!onScreen && !Camera.main.GetComponent<CameraController>().singlePlayer)
