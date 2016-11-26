@@ -699,6 +699,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  whatIsSand:
+    serializedVersion: 2
+    m_Bits: 1024
   anim: {fileID: 95000013039114514}
   hitGroundParticleEffect: {fileID: 1000013318155170, guid: 032a255b7f4847b4ca792a6602d1f495,
     type: 2}

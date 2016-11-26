@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public Transform rightWallCheck;
     public float wallCheckRadius;
     public LayerMask whatIsGround;
+    public LayerMask whatIsSand;
     private int Power;
     private int ReqPower;
     private int superSkillDuration;
@@ -45,7 +46,6 @@ public class PlayerController : MonoBehaviour
     private bool onWall;
 
     //private bool doubleJumped;
-
 
     public Animator anim;
     AudioSource jumpSfx;
@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
     public bool onRope;
     public float climbSpeed;
     private float climbVelocity;
+    private bool onSand;
 
     // Use this for initialization
     void Start()
@@ -135,12 +136,14 @@ public class PlayerController : MonoBehaviour
 
         offScreen = false;
         onRope = false;
+        onSand = false;
     }
 
     void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-     /*   anim.SetBool("isGrounded", isGrounded);*/
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround) || Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsSand);
+        onSand = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsSand);
+        /*   anim.SetBool("isGrounded", isGrounded);*/
 
         if (!isGrounded)
         {
@@ -168,7 +171,14 @@ public class PlayerController : MonoBehaviour
         if (onRope)
         {
             GetComponent<Rigidbody2D>().gravityScale = 0;
-            climbVelocity = climbSpeed * Input.GetAxisRaw(playerPrefix + "Vertical");
+            if (Input.GetButton(playerPrefix + "Dash"))
+            {
+                climbVelocity = runSpeed * Input.GetAxisRaw(playerPrefix + "Vertical");
+            }
+            else
+            {
+                climbVelocity = climbSpeed * Input.GetAxisRaw(playerPrefix + "Vertical");
+            }
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, climbVelocity);
         }
         else
@@ -221,7 +231,7 @@ public class PlayerController : MonoBehaviour
             {
                 isWalking = false;
             }
-            if (Input.GetButton(playerPrefix + "Dash") && isWalking)
+            if (Input.GetButton(playerPrefix + "Dash") && isWalking && !onSand)
             {
                 isRunning = true;
                 //isWalking = false;
@@ -289,7 +299,7 @@ public class PlayerController : MonoBehaviour
             //moveVelocity = 0f;
 
             //  Running: available in all cases, except for SuperFlight
-            if (Input.GetButton(playerPrefix + "Dash") /*&& !isUsingSuperFlight*/)
+            if (Input.GetButton(playerPrefix + "Dash") && !onSand /*&& !isUsingSuperFlight*/)
                 moveVelocityH = runSpeed * Input.GetAxisRaw(playerPrefix + "Horizontal");
             // SuperSpeed min speed = runSpeed
             else if (!Input.GetButton(playerPrefix + "Dash") && isUsingSuperSpeed)
