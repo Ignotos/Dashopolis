@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Scenes/Cave_no_platform.unity
-  isLoaded: 1
-  isActive: 1
