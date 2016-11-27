@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: efd713b67b1213a4593a72944ac033b4
-timeCreated: 1479946675
+timeCreated: 1480271495
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -94,6 +94,7 @@ TextureImporter:
     21300174: 8BIT_TILES_88
     21300176: 8BIT_TILES_87
     21300178: 8BIT_TILES_89
+    21300180: 8BIT_TILES_90
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -1268,6 +1269,58 @@ TextureImporter:
         y: 120
         width: 8
         height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_85
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 97
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_88
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 97
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_89
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 97
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 8BIT_TILES_90
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 97
+        width: 13
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
