@@ -16,6 +16,11 @@ public class HUDManager : MonoBehaviour {
 	ParticleSystem p1;
 	ParticleSystem p2;
 
+	AudioSource abf; 
+
+	bool p1Active;
+	bool p2Active;
+
 	// Use this for initialization
 	void Awake () {
 		Slider[] s = transform.parent.GetComponentsInChildren<Slider> ();
@@ -32,6 +37,11 @@ public class HUDManager : MonoBehaviour {
 
 		p1.Stop ();
 		p2.Stop ();
+
+		abf = GetComponent<AudioSource> ();
+
+		p1Active = false;
+		p2Active = false;
 	}
 	
 	// Update is called once per frame
@@ -49,25 +59,33 @@ public class HUDManager : MonoBehaviour {
 	public void increasePlayerOne(int p){
 		pOne.value += p;
 
-		if ((int)pOne.value == pOne.maxValue)
+		if ((int)pOne.value == pOne.maxValue && !p1Active) {
 			p1.Play ();
+			abf.Play ();
+			p1Active = true;
+		}
 	}
 
 	public void increasePlayerTwo(int p){
 		pTwo.value += p;
 
-		if ((int)pTwo.value == pTwo.maxValue)
+		if ((int)pTwo.value == pTwo.maxValue && !p2Active) {
 			p2.Play ();
+			abf.Play ();
+			p2Active = true;
+		}
 	}
 
 	public void resetPlayerOne(){
         pOne.value = 0;
 		p1.Stop ();
+		p1Active = false;
 	}
 
 	public void resetPlayerTwo(){
         pTwo.value = 0;
 		p2.Stop ();
+		p2Active = false;
 	}
 
     public void decreasePlayerOne(int p)

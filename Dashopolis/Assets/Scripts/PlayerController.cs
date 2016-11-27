@@ -515,6 +515,7 @@ public class PlayerController : MonoBehaviour
     public void SuperTime()
     {
         // Next iteration
+		PteraMover.ActivateTimeFreeze();
         CaveFlamePit.ActivateTimeFreeze();
         Fireball.ActivateTimeFreeze();
         DestroyByTime.ActivateTimeFreeze();
@@ -595,7 +596,7 @@ public class PlayerController : MonoBehaviour
 
         // Reset gravity to its orignal value
         gameObject.GetComponent<Rigidbody2D>().gravityScale = oriGravityScale;
-
+		PteraMover.DeactivateTimeFreeze ();
         CaveFlamePit.DeactivateTimeFreeze();
         Fireball.DeactivateTimeFreeze();
         DestroyByTime.DeactivateTimeFreeze();

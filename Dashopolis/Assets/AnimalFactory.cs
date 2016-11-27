@@ -7,6 +7,7 @@ public class AnimalFactory : MonoBehaviour {
 	GameObject pteraPrefab;
 	bool pteraAlive;
 
+	public static bool timeFreezeActivated;
 	float time;
 
 	// Use this for initialization
@@ -16,6 +17,7 @@ public class AnimalFactory : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(!timeFreezeActivated){
 		time += Time.fixedDeltaTime;
 
 		if ((int)time % 9 == 0) {
@@ -25,5 +27,16 @@ public class AnimalFactory : MonoBehaviour {
 			}
 		} else
 			pteraAlive = false;
+		}
 	}
+	public static void ActivateTimeFreeze()
+	{
+		timeFreezeActivated = true;
+	}
+
+	public static void DeactivateTimeFreeze()
+	{
+		timeFreezeActivated = false;
+	}
+			
 }
