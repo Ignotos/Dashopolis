@@ -178,9 +178,9 @@ MonoBehaviour:
   HexSideLength: 0
   NumLayers: 3
   NumTilesWide: 300
-  NumTilesHigh: 30
+  NumTilesHigh: 50
   TileWidth: 8
   TileHeight: 8
   ExportScale: 0.125
   MapWidthInPixels: 2400
-  MapHeightInPixels: 240
+  MapHeightInPixels: 400
