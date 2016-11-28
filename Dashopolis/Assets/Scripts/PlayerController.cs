@@ -174,7 +174,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		Debug.Log("onRope is = " + onRope);
+		//Debug.Log("onRope is = " + onRope);
         if (onRope)
         {
             GetComponent<Rigidbody2D>().gravityScale = 0;
