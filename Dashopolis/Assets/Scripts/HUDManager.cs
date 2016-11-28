@@ -8,6 +8,7 @@ public class HUDManager : MonoBehaviour {
 	Slider pTwo;
 
 	Text timeCounter;
+	Text countdownText;
 
 	float seconds;
 	int minutes;
@@ -17,14 +18,23 @@ public class HUDManager : MonoBehaviour {
 	ParticleSystem p2;
 
 	AudioSource abf; 
+	AudioSource cs;
 
 	bool p1Active;
 	bool p2Active;
+
+	bool loopDone;
+
+	IEnumerator startGame;
+	int count;
+	int countdownTime;
 
 	// Use this for initialization
 	void Awake () {
 		Slider[] s = transform.parent.GetComponentsInChildren<Slider> ();
 		timeCounter = transform.parent.GetComponentsInChildren<Text> ()[1];
+		countdownText = transform.parent.GetComponentsInChildren<Text> ()[2];
+
 		pOne = s [0];
 		pTwo = s [1];
         Debug.Log("START UI VALUE: " + pOne.value);
@@ -38,14 +48,65 @@ public class HUDManager : MonoBehaviour {
 		p1.Stop ();
 		p2.Stop ();
 
-		abf = GetComponent<AudioSource> ();
-
+		abf = GetComponents<AudioSource> ()[0];
+		cs = GetComponents<AudioSource> ()[1];
 		p1Active = false;
 		p2Active = false;
+
+		Time.timeScale = 0;
+		count = 3;
+		countdownText.text = "";
+
+		startGame = go ();
+
+		loopDone = false;
 	}
-	
+
+	void Start(){
+		StartCoroutine (startGame);
+	}
+
+	IEnumerator go(){
+		yield return new WaitForSecondsRealtime (1);
+		countdownTime = (int)Time.unscaledTime;
+		countdownText.text = count.ToString ();
+		string num = count.ToString ();
+
+		while (!loopDone) {
+			if (countdownTime != (int)Time.unscaledTime) {
+				countdownTime = (int)Time.unscaledTime;
+				count--;
+				cs.Play ();
+				num = count.ToString ();
+				Debug.Log ("Time 1: " + (int)Time.unscaledTime);
+
+				if (count == 0) {
+					countdownText.text = "GO!";
+					count--;
+					cs.Play ();
+					num = "GO!";
+					Debug.Log("Time 2: " + (int)Time.unscaledTime);
+				}
+				else if (count < -1) {
+					num = "";
+					Time.timeScale = 1;
+					Debug.Log("Time 3: " + (int)Time.unscaledTime);
+					StopCoroutine (startGame);
+					count--;
+					loopDone = true;
+				}
+			}
+			countdownText.text = num;
+			yield return null;
+		}
+		StopCoroutine (startGame);
+
+	}
+		
+
 	// Update is called once per frame
 	void Update () {
+
 		totalTime += Time.deltaTime;
 
 		minutes = (int)(totalTime / 60);
