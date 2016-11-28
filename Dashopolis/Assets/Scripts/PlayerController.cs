@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
     public float climbSpeed;
     private float climbVelocity;
     private bool onSand;
+    public GameObject sandFx;
 
     // Use this for initialization
     void Start()
@@ -144,6 +145,11 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround) || Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsSand);
         onSand = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsSand);
         /*   anim.SetBool("isGrounded", isGrounded);*/
+
+        if (onSand)
+            sandFx.GetComponent<ParticleSystem>().Play();
+        else
+            sandFx.GetComponent<ParticleSystem>().Stop();
 
         if (!isGrounded)
         {
