@@ -12,9 +12,9 @@ public class FinishLine : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			PlayerController p = col.gameObject.GetComponent<PlayerController> ();
 			if (p.playerNumber == 0) {
-				PlayerPrefs.SetInt ("Player 1", 1);
+				PlayerPrefs.SetInt ("Winner", 1);
 			} else
-				PlayerPrefs.SetInt ("Player 1", -1);
+				PlayerPrefs.SetInt ("Winner", 2);
 			SceneManager.LoadScene ("EndScene");
 		}
 	}
