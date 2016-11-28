@@ -177,10 +177,10 @@ MonoBehaviour:
   StaggerIndex: 0
   HexSideLength: 0
   NumLayers: 3
-  NumTilesWide: 300
+  NumTilesWide: 310
   NumTilesHigh: 50
   TileWidth: 8
   TileHeight: 8
   ExportScale: 0.125
-  MapWidthInPixels: 2400
+  MapWidthInPixels: 2480
   MapHeightInPixels: 400
