@@ -968,6 +968,36 @@ Prefab:
       propertyPath: player2
       value: 
       objectReference: {fileID: 1427989219}
+    - target: {fileID: 4000013460657452, guid: abe5ad4365973c74994126afeed214c3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -321
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013460657452, guid: abe5ad4365973c74994126afeed214c3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013023841290, guid: abe5ad4365973c74994126afeed214c3,
+        type: 2}
+      propertyPath: timer
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013023841290, guid: abe5ad4365973c74994126afeed214c3,
+        type: 2}
+      propertyPath: Speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014105234870, guid: abe5ad4365973c74994126afeed214c3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -156
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013763688858, guid: abe5ad4365973c74994126afeed214c3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -143
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010268223124, guid: abe5ad4365973c74994126afeed214c3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -130
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abe5ad4365973c74994126afeed214c3, type: 2}
   m_IsPrefabParent: 0
