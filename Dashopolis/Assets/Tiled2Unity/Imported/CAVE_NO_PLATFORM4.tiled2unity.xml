@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 15/11/2016 2:08:52 AM-->
-<Tiled2Unity version="1.0.8.0">
+<!--Last exported: 2016-11-27 10:22:24 PM-->
+<Tiled2Unity version="1.0.7.10">
   <AssignMaterial mesh="mesh_0001" material="8BIT_TILES" />
   <Prefab name="CAVE_NO_PLATFORM4" orientation="Orthogonal" staggerAxis="Y" staggerIndex="Odd" hexSideLength="0" numLayers="3" numTilesWide="300" numTilesHigh="30" tileWidth="8" tileHeight="8" exportScale="0.125" mapWidthInPixels="2400" mapHeightInPixels="240" scale=".125">
     <GameObject name="Hazard" x="0" y="0" z="0">
