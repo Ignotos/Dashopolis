@@ -21,7 +21,7 @@ GameObject:
   - 224: {fileID: 224000010958270752}
   - 198: {fileID: 198000010466145616}
   - 199: {fileID: 199000014216559394}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: P2Highlighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - 224: {fileID: 224000013797826352}
   - 198: {fileID: 198000012917231422}
   - 199: {fileID: 199000013590628634}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: P1Highlighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - 223: {fileID: 223000010729318052}
   - 114: {fileID: 114000010098387968}
   - 114: {fileID: 114000013699622672}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: HUDParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -147,7 +147,7 @@ ParticleSystem:
   randomSeed: 63433504
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   moveWithTransform: 1
   scalingMode: 1
   InitialModule:
@@ -536,8 +536,8 @@ ParticleSystem:
     radius: 1
     angle: 25
     length: 5
-    boxX: 9
-    boxY: 0.5
+    boxX: 16
+    boxY: 2
     boxZ: 1
     arc: 360
     placementMode: 0
@@ -2289,8 +2289,8 @@ ParticleSystem:
     radius: 1
     angle: 25
     length: 5
-    boxX: 9
-    boxY: 0.5
+    boxX: 16
+    boxY: 2
     boxZ: 1
     arc: 360
     placementMode: 0
@@ -3636,7 +3636,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 9
   m_RenderMode: 0
-  m_SortMode: 3
+  m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
@@ -3711,7 +3711,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 9
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &224000010608365932
 RectTransform:
@@ -3741,7 +3741,7 @@ RectTransform:
   m_GameObject: {fileID: 1000011899854748}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 224000010608365932}
@@ -3759,7 +3759,7 @@ RectTransform:
   m_GameObject: {fileID: 1000013733250338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 224000010608365932}
