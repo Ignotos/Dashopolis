@@ -494,7 +494,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013485024894}
   - 60: {fileID: 60000013853154620}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -865,7 +865,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013354192794}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Quicksand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1124,7 +1124,7 @@ GameObject:
   - 23: {fileID: 23000014286624954}
   - 114: {fileID: 114000010722673192}
   - 114: {fileID: 114000011734980020}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: sand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4717,7 +4717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 82000011689214350}
-  particles: {fileID: 0}
+  particles: {fileID: 1000010848931820, guid: 69d7844dd8347c046bf8735863663e07, type: 2}
 --- !u!114 &114000013021282566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -24359,7 +24359,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: 1080550621
+  randomSeed: 827165140
   InitialModule:
     serializedVersion: 2
     enabled: 1
