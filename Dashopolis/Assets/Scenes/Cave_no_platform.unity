@@ -306,11 +306,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000011589048802, guid: b6a9db35a89d1b541a68b8f4bc556446, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -393
+      value: -201.9
       objectReference: {fileID: 0}
     - target: {fileID: 4000011589048802, guid: b6a9db35a89d1b541a68b8f4bc556446, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -24.85
+      value: -15.7
       objectReference: {fileID: 0}
     - target: {fileID: 4000011589048802, guid: b6a9db35a89d1b541a68b8f4bc556446, type: 2}
       propertyPath: m_LocalPosition.z
@@ -585,18 +585,16 @@ Prefab:
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 23000013179146842, guid: ca0ee10d0b2b53e4d8ef08a46a2445af,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: m_SortingOrder
       value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 23000012466189434, guid: ca0ee10d0b2b53e4d8ef08a46a2445af,
         type: 2}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 23000010905145552, guid: ca0ee10d0b2b53e4d8ef08a46a2445af,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: m_SortingOrder
       value: -10
       objectReference: {fileID: 0}
@@ -605,13 +603,11 @@ Prefab:
       propertyPath: m_SortingOrder
       value: -9
       objectReference: {fileID: 0}
-    - target: {fileID: 23000010245965870, guid: ca0ee10d0b2b53e4d8ef08a46a2445af,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: m_SortingOrder
       value: -8
       objectReference: {fileID: 0}
-    - target: {fileID: 23000011108779998, guid: ca0ee10d0b2b53e4d8ef08a46a2445af,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: m_SortingOrder
       value: -8
       objectReference: {fileID: 0}
@@ -966,50 +962,6 @@ Prefab:
       propertyPath: player2
       value: 
       objectReference: {fileID: 1427989219}
-    - target: {fileID: 4000012181270690, guid: abe5ad4365973c74994126afeed214c3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -344
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012181270690, guid: abe5ad4365973c74994126afeed214c3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013726343244, guid: abe5ad4365973c74994126afeed214c3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -344
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012589958340, guid: abe5ad4365973c74994126afeed214c3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -6.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011071689996, guid: abe5ad4365973c74994126afeed214c3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -349
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011071689996, guid: abe5ad4365973c74994126afeed214c3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013815087074, guid: abe5ad4365973c74994126afeed214c3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000013815087074, guid: abe5ad4365973c74994126afeed214c3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -344
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012589958340, guid: abe5ad4365973c74994126afeed214c3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -300.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013300647508, guid: abe5ad4365973c74994126afeed214c3, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012252926784, guid: abe5ad4365973c74994126afeed214c3, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abe5ad4365973c74994126afeed214c3, type: 2}
   m_IsPrefabParent: 0
