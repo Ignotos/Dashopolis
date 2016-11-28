@@ -1,21 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Puma : MonoBehaviour {
+public class Cobra : MonoBehaviour {
 
-    private Rigidbody2D rb;
+	private Rigidbody2D rb;
     public float Speed;
     public int timer;
     public SpriteRenderer flip;
-	public int timerReset;
-
+	public int minTime;
+	public int maxTime;
+	
+	private int initialTimer;
     // Use this for initialization
     void Start () {
-
         rb = GetComponent<Rigidbody2D>();
-        
-        
-
+		initialTimer = timer;
     }
 
 
@@ -25,27 +24,21 @@ public class Puma : MonoBehaviour {
 
         //Debug.Log(timer);
         timer--;
-        flip.flipX = false;
+        flip.flipX = true;
 
         rb.velocity = -transform.right * Speed;
 
-        if (timer > 0 && timer < 150)
+        if (timer > minTime && timer < maxTime)
         {
             rb.velocity = transform.right * Speed;
-            flip.flipX = true;
-
-
-
+            flip.flipX = false;
         }
        
         if(timer < 0)
-        {
-            
-            timer=timerReset;
-
+        {       
+            timer = initialTimer;
         }
 
 
     }
-       
 }

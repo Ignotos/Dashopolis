@@ -174,6 +174,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		Debug.Log("onRope is = " + onRope);
         if (onRope)
         {
             GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -688,6 +689,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isWallJumping", isWallJumping);
         anim.SetBool("isUsingSuperFlight", isUsingSuperFlight);
         anim.SetBool("isUsingSuperSpeed", isUsingSuperSpeed);
+		anim.SetBool("onRope", onRope);
     }
 
     bool CheckSuperSkillConditions()
