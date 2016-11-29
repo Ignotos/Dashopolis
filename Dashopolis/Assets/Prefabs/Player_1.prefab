@@ -748,6 +748,7 @@ MonoBehaviour:
   onRope: 0
   climbSpeed: 5
   sandFx: {fileID: 1000011850258718}
+  onTree: 0
 --- !u!198 &198000010658461744
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -120,6 +120,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011375924124}
   - 60: {fileID: 60000012831797006}
+  - 114: {fileID: 114000010499036946}
   m_Layer: 0
   m_Name: Collision
   m_TagString: Untagged
@@ -176,7 +177,7 @@ Transform:
   m_GameObject: {fileID: 1000010577930432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.125, y: 0.125, z: 0.125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011311706356}
@@ -555,6 +556,18 @@ PolygonCollider2D:
       - {x: 56, y: -29}
       - {x: 56, y: -28}
       - {x: 49, y: -28}
+--- !u!114 &114000010499036946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014079944842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1258cc35a36a534994aae9f8220c741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Powervalue: 0
 --- !u!114 &114000011445472476
 MonoBehaviour:
   m_ObjectHideFlags: 1

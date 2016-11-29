@@ -149,13 +149,9 @@ public class PlayerController : MonoBehaviour
         oldTriggerHeld = false;
         isDashingTrigger = false;
 
-<<<<<<< HEAD
-        if (superSkill < 1 || superSkill > 3)
-            superSkill = 1;
-=======
 		if (superSkill < 1 || superSkill > 3)
 			superSkill = 1;
->>>>>>> origin/master
+
     }
 
     void FixedUpdate()
