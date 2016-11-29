@@ -71,6 +71,7 @@ public class HUDManager : MonoBehaviour {
 		countdownTime = (int)Time.unscaledTime;
 		countdownText.text = count.ToString ();
 		string num = count.ToString ();
+		cs.Play ();
 
 		while (!loopDone) {
 			if (countdownTime != (int)Time.unscaledTime) {
