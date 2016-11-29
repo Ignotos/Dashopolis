@@ -115,7 +115,7 @@ public class AbilitySelector : MonoBehaviour {
 		if(player1Ability != -1 && player2Ability != -1){
 			PlayerPrefs.SetInt ("P1 Ability", player1Ability);
 			PlayerPrefs.SetInt ("P2 Ability", player2Ability);
-			SceneManager.LoadScene ("Cave_no_platform");
+			SceneManager.LoadScene ("ControlsScreen");
 		}
 
 
