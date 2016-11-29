@@ -79,19 +79,19 @@ public class HUDManager : MonoBehaviour {
 				count--;
 				cs.Play ();
 				num = count.ToString ();
-				Debug.Log ("Time 1: " + (int)Time.unscaledTime);
+
 
 				if (count == 0) {
 					countdownText.text = "GO!";
 					count--;
 					cs.Play ();
 					num = "GO!";
-					Debug.Log("Time 2: " + (int)Time.unscaledTime);
+
 				}
 				else if (count < -1) {
 					num = "";
 					Time.timeScale = 1;
-					Debug.Log("Time 3: " + (int)Time.unscaledTime);
+				
 					StopCoroutine (startGame);
 					count--;
 					loopDone = true;

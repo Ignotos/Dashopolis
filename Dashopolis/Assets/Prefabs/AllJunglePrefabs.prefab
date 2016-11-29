@@ -211,7 +211,6 @@ GameObject:
   - 50: {fileID: 50000011368797642}
   - 233: {fileID: 233000012656859050}
   - 61: {fileID: 61000013924829928}
-  - 251: {fileID: 251000010542156084}
   m_Layer: 8
   m_Name: SwingingCage (2)
   m_TagString: Untagged
@@ -2257,7 +2256,6 @@ GameObject:
   - 50: {fileID: 50000012124727274}
   - 233: {fileID: 233000013850864710}
   - 61: {fileID: 61000013486569616}
-  - 251: {fileID: 251000013417654320}
   m_Layer: 8
   m_Name: SwingingCage (1)
   m_TagString: Untagged
@@ -3152,7 +3150,6 @@ GameObject:
   - 50: {fileID: 50000013447558746}
   - 233: {fileID: 233000012409959112}
   - 61: {fileID: 61000013044137824}
-  - 251: {fileID: 251000011962192852}
   m_Layer: 8
   m_Name: SwingingCage
   m_TagString: Untagged
@@ -7989,7 +7986,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011702923726}
   m_UseAutoMass: 0
-  m_Mass: 15
+  m_Mass: 40
   m_LinearDrag: 2
   m_AngularDrag: 0.25
   m_GravityScale: 1
@@ -8023,7 +8020,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010265123976}
   m_UseAutoMass: 0
-  m_Mass: 15
+  m_Mass: 40
   m_LinearDrag: 2
   m_AngularDrag: 0.25
   m_GravityScale: 1
@@ -8040,7 +8037,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012486703738}
   m_UseAutoMass: 0
-  m_Mass: 15
+  m_Mass: 40
   m_LinearDrag: 2
   m_AngularDrag: 0.25
   m_GravityScale: 1
@@ -8074,7 +8071,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010093671842}
   m_UseAutoMass: 0
-  m_Mass: 15
+  m_Mass: 40
   m_LinearDrag: 2
   m_AngularDrag: 0.25
   m_GravityScale: 1
@@ -8091,7 +8088,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013307564862}
   m_UseAutoMass: 0
-  m_Mass: 15
+  m_Mass: 40
   m_LinearDrag: 2
   m_AngularDrag: 0.25
   m_GravityScale: 1
@@ -8635,9 +8632,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 1
-  m_Offset: {x: 0.057403564, y: 0.03826523}
+  m_Offset: {x: 0.057403564, y: -2.093628}
   serializedVersion: 2
-  m_Size: {x: 3.4873638, y: 4.2143764}
+  m_Size: {x: 4.202572, y: 0.3357073}
 --- !u!61 &61000010038952854
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -9153,9 +9150,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 1
-  m_Offset: {x: 0.057403564, y: 0.03826523}
+  m_Offset: {x: 0.023040771, y: -2.066122}
   serializedVersion: 2
-  m_Size: {x: 3.4873638, y: 4.2143764}
+  m_Size: {x: 4.2438116, y: 0.39071774}
 --- !u!61 &61000012465419704
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -9292,10 +9289,10 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
-  m_Offset: {x: 0.057403564, y: 0.03826523}
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.024749756, y: -2.0680733}
   serializedVersion: 2
-  m_Size: {x: 3.4873638, y: 4.2143764}
+  m_Size: {x: 4.271059, y: 0.39357805}
 --- !u!61 &61000013054045468
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -9432,10 +9429,10 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
-  m_Offset: {x: 0.057403564, y: 0.03826523}
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.043640137, y: -2.0888863}
   serializedVersion: 2
-  m_Size: {x: 3.4873638, y: 4.2143764}
+  m_Size: {x: 4.23005, y: 0.40020418}
 --- !u!61 &61000013499053998
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -9558,10 +9555,10 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
-  m_Offset: {x: 0.057403564, y: 0.03826523}
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.043670654, y: -2.0661201}
   serializedVersion: 2
-  m_Size: {x: 3.4873638, y: 4.2143764}
+  m_Size: {x: 4.202562, y: 0.39072537}
 --- !u!61 &61000013930488298
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -10906,7 +10903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 25
-  speed: 18
+  speed: 20
 --- !u!114 &114000011179336422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11467,8 +11464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3083162007d472d418be84c9fffda232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 20
-  speed: 19
+  angle: 10
+  speed: 10
 --- !u!114 &114000012902984250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11833,8 +11830,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3083162007d472d418be84c9fffda232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 25
-  speed: 20
+  angle: 10
+  speed: 10
 --- !u!114 &114000013761395996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -48384,23 +48381,6 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
---- !u!251 &251000010542156084
-PlatformEffector2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010265123976}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseOneWay: 1
-  m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
-  m_UseSideFriction: 0
-  m_UseSideBounce: 0
-  m_SideArc: 1
 --- !u!251 &251000010634350848
 PlatformEffector2D:
   m_ObjectHideFlags: 1
@@ -48628,23 +48608,6 @@ PlatformEffector2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014018991408}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseOneWay: 1
-  m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
-  m_UseSideFriction: 0
-  m_UseSideBounce: 0
-  m_SideArc: 1
---- !u!251 &251000011962192852
-PlatformEffector2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013307564862}
   m_Enabled: 1
   m_UseColliderMask: 1
   m_ColliderMask:
@@ -48917,23 +48880,6 @@ PlatformEffector2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010442754446}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseOneWay: 1
-  m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
-  m_UseSideFriction: 0
-  m_UseSideBounce: 0
-  m_SideArc: 1
---- !u!251 &251000013417654320
-PlatformEffector2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012486703738}
   m_Enabled: 1
   m_UseColliderMask: 1
   m_ColliderMask:
