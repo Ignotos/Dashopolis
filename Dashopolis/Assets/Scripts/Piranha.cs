@@ -15,9 +15,11 @@ public class Piranha : MonoBehaviour {
     private bool reachTop;
     public float delay;
     private float nextStart;
+	public static bool timeFreezeActivated;
  //   private AudioSource audio;
 
 	void Start () { 
+		timeFreezeActivated = false;
         start = new Vector2(transform.position.x, transform.position.y);
         height = Random.Range(minHeight, maxHeight);
         end = new Vector2(start.x, height);
@@ -26,42 +28,44 @@ public class Piranha : MonoBehaviour {
 	}
 	
 	void Update () {
-
-        // REACH TOP
-        if (GetPos().y >= height - 0.5f && !reachTop)
-            reachTop = true;
-
-        // TOUCH WATER
-        if (GetPos().y <= start.y + 0.5f && reachTop)
+		if (!timeFreezeActivated)
         {
-            // Particle effect + audio
-            GetComponentInChildren<ParticleSystem>().Play();
-            GetComponent<AudioSource>().Play();
+			// REACH TOP
+			if (GetPos().y >= height - 0.5f && !reachTop)
+				reachTop = true;
 
-            // Reset everything
-            nextStart = Time.time + delay;
-            reachTop = false;
-            height = Random.Range(minHeight, maxHeight);
-            end = new Vector2(start.x, height);
-        }
+			// TOUCH WATER
+			if (GetPos().y <= start.y + 0.5f && reachTop)
+			{
+				// Particle effect + audio
+				GetComponentInChildren<ParticleSystem>().Play();
+				GetComponent<AudioSource>().Play();
 
-        if (Time.time >= nextStart)
-        {
-            // GO UP
-            if (!reachTop && GetPos().y < height)
-            {
-                transform.localScale = new Vector3(1f, 1f, 1f);
-                dir = end - GetPos();
-                transform.Translate(dir * speed * Time.deltaTime, Space.World);
-            }
-            // GO DOWN
-            else if (reachTop && GetPos().y <= height)
-            {
-                transform.localScale = new Vector3(-1f, 1f, 1f);
-                dir = start - GetPos();
-                transform.Translate(dir * speed * 2 * Time.deltaTime, Space.World);
-            }
-        }
+				// Reset everything
+				nextStart = Time.time + delay;
+				reachTop = false;
+				height = Random.Range(minHeight, maxHeight);
+				end = new Vector2(start.x, height);
+			}
+
+			if (Time.time >= nextStart)
+			{
+				// GO UP
+				if (!reachTop && GetPos().y < height)
+				{
+					transform.localScale = new Vector3(1f, 1f, 1f);
+					dir = end - GetPos();
+					transform.Translate(dir * speed * Time.deltaTime, Space.World);
+				}
+				// GO DOWN
+				else if (reachTop && GetPos().y <= height)
+				{
+					transform.localScale = new Vector3(-1f, 1f, 1f);
+					dir = start - GetPos();
+					transform.Translate(dir * speed * 2 * Time.deltaTime, Space.World);
+				}
+			}
+		}
 
 	}
 
@@ -69,6 +73,16 @@ public class Piranha : MonoBehaviour {
     Vector2 GetPos()
     {
         return new Vector2(transform.position.x, transform.position.y);
+    }
+	
+	public static void ActivateTimeFreeze()
+    {
+        timeFreezeActivated = true;
+    }
+
+    public static void DeactivateTimeFreeze()
+    {
+        timeFreezeActivated = false;
     }
 
 }

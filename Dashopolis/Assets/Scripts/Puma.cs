@@ -8,44 +8,53 @@ public class Puma : MonoBehaviour {
     public int timer;
     public SpriteRenderer flip;
 	public int timerReset;
-
+	public static bool timeFreezeActivated;
     // Use this for initialization
     void Start () {
-
+		timeFreezeActivated = false;
         rb = GetComponent<Rigidbody2D>();
-        
-        
-
     }
 
 
 	
 	// Update is called once per frame
 	void Update () {
+		if (timeFreezeActivated){
+			rb.velocity = Vector2.zero;
+		}
+		else{
+			//Debug.Log(timer);
+			timer--;
+			flip.flipX = false;
 
-        //Debug.Log(timer);
-        timer--;
-        flip.flipX = false;
+			rb.velocity = -transform.right * Speed;
 
-        rb.velocity = -transform.right * Speed;
-
-        if (timer > 0 && timer < 150)
-        {
-            rb.velocity = transform.right * Speed;
-            flip.flipX = true;
-
-
-
-        }
-       
-        if(timer < 0)
-        {
-            
-            timer=timerReset;
-
-        }
+			if (timer > 0 && timer < 150)
+			{
+				rb.velocity = transform.right * Speed;
+				flip.flipX = true;
 
 
+
+			}
+		   
+			if(timer < 0)
+			{
+				
+				timer=timerReset;
+
+			}
+		}
+    }
+	
+	public static void ActivateTimeFreeze()
+    {
+        timeFreezeActivated = true;
+    }
+
+    public static void DeactivateTimeFreeze()
+    {
+        timeFreezeActivated = false;
     }
        
 }
