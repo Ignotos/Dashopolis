@@ -294,6 +294,30 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 7e3e8b37a130c1d46a606fca56f40f74, type: 3}
+    - target: {fileID: 1000010006888180, guid: d303720fa76651f429dbee63d799c2a8, type: 2}
+      propertyPath: m_TagString
+      value: FX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013534506426, guid: d303720fa76651f429dbee63d799c2a8, type: 2}
+      propertyPath: m_TagString
+      value: FX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013131451362, guid: d303720fa76651f429dbee63d799c2a8, type: 2}
+      propertyPath: m_TagString
+      value: FX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010865609470, guid: d303720fa76651f429dbee63d799c2a8, type: 2}
+      propertyPath: m_TagString
+      value: FX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012788480942, guid: d303720fa76651f429dbee63d799c2a8, type: 2}
+      propertyPath: m_TagString
+      value: FX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013638126692, guid: d303720fa76651f429dbee63d799c2a8, type: 2}
+      propertyPath: m_TagString
+      value: FX
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d303720fa76651f429dbee63d799c2a8, type: 2}
   m_IsPrefabParent: 0
@@ -986,6 +1010,14 @@ Prefab:
     - target: {fileID: 4000010232911594, guid: d5f26f8a97dfc224ca68a154889bfa49, type: 2}
       propertyPath: m_RootOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011545075636, guid: d5f26f8a97dfc224ca68a154889bfa49, type: 2}
+      propertyPath: m_TagString
+      value: FX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010781702136, guid: d5f26f8a97dfc224ca68a154889bfa49, type: 2}
+      propertyPath: m_TagString
+      value: FX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5f26f8a97dfc224ca68a154889bfa49, type: 2}

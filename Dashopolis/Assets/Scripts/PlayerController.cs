@@ -564,6 +564,11 @@ public class PlayerController : MonoBehaviour
         SwingingBoulder[] sb = FindObjectsOfType<SwingingBoulder>();
         sb[0].ActivateTimeFreeze();
         sb[1].ActivateTimeFreeze();
+        sb[2].ActivateTimeFreeze();
+        sb[3].ActivateTimeFreeze();
+        sb[4].ActivateTimeFreeze();
+        sb[5].ActivateTimeFreeze();
+        sb[6].ActivateTimeFreeze();
         RockController.ActivateTimeFreeze();
         Turret.ActivateTimeFreeze();
         PlayerController[] players = FindObjectsOfType<PlayerController>();
@@ -655,6 +660,11 @@ public class PlayerController : MonoBehaviour
         SwingingBoulder[] sb = FindObjectsOfType<SwingingBoulder>();
         sb[0].DeactivateTimeFreeze();
         sb[1].DeactivateTimeFreeze();
+        sb[2].DeactivateTimeFreeze();
+        sb[3].DeactivateTimeFreeze();
+        sb[4].DeactivateTimeFreeze();
+        sb[5].DeactivateTimeFreeze();
+        sb[6].DeactivateTimeFreeze();
         RockController.DeactivateTimeFreeze();
         Turret.DeactivateTimeFreeze();
         PlayerController[] players = FindObjectsOfType<PlayerController>();

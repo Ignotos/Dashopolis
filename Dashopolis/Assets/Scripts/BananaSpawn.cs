@@ -70,6 +70,13 @@ public class BananaSpawn : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-	
-	}
+	    if (timeFreezeActivated)
+        {
+            GetComponent<Animator>().enabled = false;
+        }
+        else
+        {
+            GetComponent<Animator>().enabled = true;
+        }
+    }
 }
