@@ -608,6 +608,7 @@ public class PlayerController : MonoBehaviour
         Saw.ActivateTimeFreeze();
         Banana.ActivateTimeFreeze();
         BananaSpawn[] bs = FindObjectsOfType<BananaSpawn>();
+		Bat.ActivateTimeFreeze();
         bs[0].ActivateTimeFreeze();
         bs[1].ActivateTimeFreeze();
         bs[2].ActivateTimeFreeze();
@@ -676,6 +677,7 @@ public class PlayerController : MonoBehaviour
         LaserBeam.DeactivateTimeFreeze();
         Saw.DeactivateTimeFreeze();
         LaserTurret.DeactivateTimeFreeze();
+		Bat.DeactivateTimeFreeze();
         SwingingBoulder[] sb = FindObjectsOfType<SwingingBoulder>();
         sb[0].DeactivateTimeFreeze();
         sb[1].DeactivateTimeFreeze();
