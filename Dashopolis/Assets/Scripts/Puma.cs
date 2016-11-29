@@ -21,10 +21,13 @@ public class Puma : MonoBehaviour {
 	void Update () {
 		if (timeFreezeActivated){
 			rb.velocity = Vector2.zero;
+            GetComponent<Animator>().enabled = false;
 		}
 		else{
-			//Debug.Log(timer);
-			timer--;
+            GetComponent<Animator>().enabled = true;
+
+            //Debug.Log(timer);
+            timer--;
 			flip.flipX = false;
 
 			rb.velocity = -transform.right * Speed;

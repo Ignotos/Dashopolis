@@ -19,7 +19,7 @@ public class Saw : MonoBehaviour {
         if (!timeFreezeActivated)
         {
             transform.Rotate(0, 0, speed * Time.deltaTime);
-        }
+        
 
         Vector2 direction;
         float time = Mathf.Ceil(Time.time);
@@ -32,6 +32,7 @@ public class Saw : MonoBehaviour {
         {
             direction = oriPosition - getCurrentPosition2D();
             transform.Translate(direction * Time.deltaTime * 5.0f, Space.World);
+        }
         }
     }
 
