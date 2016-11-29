@@ -137,7 +137,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012835150394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -393, y: -24.78, z: 0}
+  m_LocalPosition: {x: -398.5, y: -24.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -307,7 +307,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -733,6 +733,9 @@ MonoBehaviour:
   whatIsSand:
     serializedVersion: 2
     m_Bits: 1024
+  whatIsTree:
+    serializedVersion: 2
+    m_Bits: 2048
   anim: {fileID: 95000012864149444}
   hitGroundParticleEffect: {fileID: 1000013318155170, guid: 032a255b7f4847b4ca792a6602d1f495,
     type: 2}

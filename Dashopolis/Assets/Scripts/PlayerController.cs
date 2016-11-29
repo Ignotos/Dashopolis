@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     public float wallCheckRadius;
     public LayerMask whatIsGround;
     public LayerMask whatIsSand;
+    public LayerMask whatIsTree;
     private int Power;
     private int ReqPower;
     private int superSkillDuration;
@@ -82,6 +83,7 @@ public class PlayerController : MonoBehaviour
     private float climbVelocity;
     private bool onSand;
     public GameObject sandFx;
+    public bool onTree;
 
     private bool isRespawning;
     bool oldTriggerHeld;
@@ -151,6 +153,8 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround) || Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsSand);
         onSand = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsSand);
+        onTree = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsTree);
+
         if (isGrounded && isRespawning)
         {
             isRespawning = false;
@@ -751,7 +755,10 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isWallJumping", isWallJumping);
         anim.SetBool("isUsingSuperFlight", isUsingSuperFlight);
         anim.SetBool("isUsingSuperSpeed", isUsingSuperSpeed);
-		anim.SetBool("onRope", onRope);
+        if (onRope || onTree)
+		    anim.SetBool("onRope", true);
+        else
+            anim.SetBool("onRope", false);
     }
 
     bool CheckSuperSkillConditions()
