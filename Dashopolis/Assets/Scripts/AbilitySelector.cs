@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class AbilitySelector : MonoBehaviour {
 
@@ -15,8 +16,8 @@ public class AbilitySelector : MonoBehaviour {
 	[SerializeField]
 	Sprite speed;
 
-	private SpriteRenderer pOne;
-	private SpriteRenderer pTwo;
+	private Image pOne;
+	private Image pTwo;
 
 	int player1Ability;
 	int player2Ability;
@@ -38,8 +39,8 @@ public class AbilitySelector : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		sprites = new Sprite[]{speed, flight, time};
-		pOne = GetComponentsInChildren<SpriteRenderer> ()[0];
-		pTwo = GetComponentsInChildren<SpriteRenderer> ()[1];
+		pOne = transform.parent.GetComponentsInChildren<Image> ()[1];
+		pTwo = transform.parent.GetComponentsInChildren<Image> ()[2];
 
 		indexOne = 0;
 		indexTwo = 1;
