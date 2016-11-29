@@ -86,8 +86,6 @@ public class PlayerController : MonoBehaviour
     private bool isRespawning;
     bool oldTriggerHeld;
     bool isDashingTrigger;
-    bool newTriggerHeld;
-
 
     // Use this for initialization
     void Start()
@@ -147,7 +145,6 @@ public class PlayerController : MonoBehaviour
         isRespawning = false;
         oldTriggerHeld = false;
         isDashingTrigger = false;
-        newTriggerHeld = false;
     }
 
     void FixedUpdate()
@@ -253,15 +250,23 @@ public class PlayerController : MonoBehaviour
             {
                 isWalking = false;
             }
+
             
+
             if (playerNumber == 1)
             {
-                newTriggerHeld = Input.GetAxis(playerPrefix + "DashTrigger") > 0f;
+                bool newTriggerHeld = Input.GetAxis(playerPrefix + "DashTrigger") > 0f;
+                if (!newTriggerHeld)
+                {
+                    isDashingTrigger = false;
+                }
+                else if (!oldTriggerHeld && newTriggerHeld)
+                {
+                    isDashingTrigger = true;
+                }
+                oldTriggerHeld = newTriggerHeld;
             }
-            if (!oldTriggerHeld && newTriggerHeld) {
-                isDashingTrigger = true;
-            }
-            oldTriggerHeld = newTriggerHeld;
+
             if ((Input.GetButton(playerPrefix + "Dash") || isDashingTrigger) && isWalking && !onSand)
             {
                 isRunning = true;
