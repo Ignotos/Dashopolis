@@ -25,17 +25,14 @@ public class Cobra : MonoBehaviour {
 	void Update () {
 		if (timeFreezeActivated){
 			rb.velocity = Vector2.zero;
-            GetComponent<Animator>().enabled = false;
 		}
-		else{
-            //Debug.Log(timer);
-            GetComponent<Animator>().enabled = true;
-
-            timer--;
+		else{	
+			//Debug.Log(timer);
+			timer--;
 			flip.flipX = true;
 
 			rb.velocity = -transform.right * Speed;
-            
+
 			if (timer > minTime && timer < maxTime)
 			{
 				rb.velocity = transform.right * Speed;

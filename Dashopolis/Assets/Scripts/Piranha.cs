@@ -30,7 +30,6 @@ public class Piranha : MonoBehaviour {
 	void Update () {
 		if (!timeFreezeActivated)
         {
-            GetComponentInChildren<Animator>().enabled = true;
 			// REACH TOP
 			if (GetPos().y >= height - 0.5f && !reachTop)
 				reachTop = true;
@@ -67,12 +66,8 @@ public class Piranha : MonoBehaviour {
 				}
 			}
 		}
-        else
-        {
-            GetComponentInChildren<Animator>().enabled = false;
-        }
 
-    }
+	}
 
     // RETURN THE CURRENT POSITION IN VECTOR2
     Vector2 GetPos()
