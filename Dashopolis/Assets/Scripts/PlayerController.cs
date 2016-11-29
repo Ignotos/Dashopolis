@@ -137,7 +137,8 @@ public class PlayerController : MonoBehaviour
 			 
 
         Debug.Log("P1 Ability: " + PlayerPrefs.GetInt("P1 Ability"));
-		Debug.Log("P2 Ability: " + PlayerPrefs.GetInt("P2 Ability"));
+		Debug.Log("P2 Ability: " + PlayerPrefs.GetInt("P2 Abilidty"));
+
 
         offScreen = false;
         onRope = false;
@@ -145,6 +146,9 @@ public class PlayerController : MonoBehaviour
         isRespawning = false;
         oldTriggerHeld = false;
         isDashingTrigger = false;
+
+		if (superSkill < 1 || superSkill > 3)
+			superSkill = 1;
     }
 
     void FixedUpdate()
