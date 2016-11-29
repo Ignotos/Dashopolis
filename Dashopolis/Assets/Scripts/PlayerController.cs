@@ -83,6 +83,8 @@ public class PlayerController : MonoBehaviour
     private bool onSand;
     public GameObject sandFx;
 
+    private bool isRespawning;
+
     // Use this for initialization
     void Start()
     {
@@ -138,12 +140,18 @@ public class PlayerController : MonoBehaviour
         offScreen = false;
         onRope = false;
         onSand = false;
+        isRespawning = false;
     }
 
     void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround) || Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsSand);
         onSand = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsSand);
+        if (isGrounded && isRespawning)
+        {
+            isRespawning = false;
+            anim.SetBool("isRespawning", false);
+        }
         /*   anim.SetBool("isGrounded", isGrounded);*/
 
         if (onSand)
@@ -493,6 +501,9 @@ public class PlayerController : MonoBehaviour
         TrailRenderer trailRenderer = gameObject.GetComponentInChildren<TrailRenderer>();
         trailRenderer.enabled = true;
         */
+
+        isRespawning = true;
+        anim.SetBool("isRespawning", true);
     }
 
     public void SuperSpeed()
