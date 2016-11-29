@@ -576,6 +576,7 @@ public class PlayerController : MonoBehaviour
         {
             fx.GetComponent<ParticleSystem>().Pause();
         }
+        Arrow.ActivateTimeFreeze();
     }
 
     // Manage the Super Skills
@@ -654,6 +655,7 @@ public class PlayerController : MonoBehaviour
         {
             fx.GetComponent<ParticleSystem>().Play();
         }
+        Arrow.DeactivateTimeFreeze();
     }
 
     public void SuperFlightDisableOtherAnim()
