@@ -577,6 +577,9 @@ public class PlayerController : MonoBehaviour
             fx.GetComponent<ParticleSystem>().Pause();
         }
         Arrow.ActivateTimeFreeze();
+        Puma.ActivateTimeFreeze();
+        Piranha.ActivateTimeFreeze();
+        Cobra.ActivateTimeFreeze();
     }
 
     // Manage the Super Skills
@@ -656,6 +659,9 @@ public class PlayerController : MonoBehaviour
             fx.GetComponent<ParticleSystem>().Play();
         }
         Arrow.DeactivateTimeFreeze();
+        Puma.DeactivateTimeFreeze();
+        Piranha.DeactivateTimeFreeze();
+        Cobra.DeactivateTimeFreeze();
     }
 
     public void SuperFlightDisableOtherAnim()
