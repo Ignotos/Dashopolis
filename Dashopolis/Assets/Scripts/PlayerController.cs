@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
     AudioSource deathSfx;
     bool hitGround;
     public GameObject hitGroundParticleEffect;
+    public GameObject respawnFX;
     private float oriGravityScale;
 
     /*
@@ -152,6 +153,8 @@ public class PlayerController : MonoBehaviour
 		if (superSkill < 1 || superSkill > 3)
 			superSkill = 1;
 
+        respawnFX.GetComponent<ParticleSystem>().Play();
+
     }
 
     void FixedUpdate()
@@ -164,6 +167,7 @@ public class PlayerController : MonoBehaviour
         {
             isRespawning = false;
             anim.SetBool("isRespawning", false);
+
         }
         /*   anim.SetBool("isGrounded", isGrounded);*/
 
@@ -534,6 +538,8 @@ public class PlayerController : MonoBehaviour
 
         isRespawning = true;
         anim.SetBool("isRespawning", true);
+
+        respawnFX.GetComponent<ParticleSystem>().Play();
     }
 
     public void SuperSpeed()
@@ -605,6 +611,10 @@ public class PlayerController : MonoBehaviour
         bs[0].ActivateTimeFreeze();
         bs[1].ActivateTimeFreeze();
         bs[2].ActivateTimeFreeze();
+
+        // Add a trail to show the use of a super skill
+        TrailRenderer trailRenderer = gameObject.GetComponentInChildren<TrailRenderer>();
+        trailRenderer.enabled = true;
     }
 
     // Manage the Super Skills
