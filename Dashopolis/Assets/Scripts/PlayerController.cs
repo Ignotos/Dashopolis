@@ -147,6 +147,9 @@ public class PlayerController : MonoBehaviour
         isRespawning = false;
         oldTriggerHeld = false;
         isDashingTrigger = false;
+
+        if (superSkill < 1 || superSkill > 3)
+            superSkill = 1;
     }
 
     void FixedUpdate()
