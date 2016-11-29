@@ -576,6 +576,16 @@ public class PlayerController : MonoBehaviour
         {
             fx.GetComponent<ParticleSystem>().Pause();
         }
+        Arrow.ActivateTimeFreeze();
+        Puma.ActivateTimeFreeze();
+        Piranha.ActivateTimeFreeze();
+        Cobra.ActivateTimeFreeze();
+        Saw.ActivateTimeFreeze();
+        Banana.ActivateTimeFreeze();
+        BananaSpawn[] bs = FindObjectsOfType<BananaSpawn>();
+        bs[0].ActivateTimeFreeze();
+        bs[1].ActivateTimeFreeze();
+        bs[2].ActivateTimeFreeze();
     }
 
     // Manage the Super Skills
@@ -654,6 +664,16 @@ public class PlayerController : MonoBehaviour
         {
             fx.GetComponent<ParticleSystem>().Play();
         }
+        Arrow.DeactivateTimeFreeze();
+        Puma.DeactivateTimeFreeze();
+        Piranha.DeactivateTimeFreeze();
+        Cobra.DeactivateTimeFreeze();
+        Saw.DeactivateTimeFreeze();
+        Banana.DeactivateTimeFreeze();
+        BananaSpawn[] bs = FindObjectsOfType<BananaSpawn>();
+        bs[0].DeactivateTimeFreeze();
+        bs[1].DeactivateTimeFreeze();
+        bs[2].DeactivateTimeFreeze();
     }
 
     public void SuperFlightDisableOtherAnim()

@@ -8,9 +8,9 @@ public class BananaSpawn : MonoBehaviour {
     public float fireRate;
     public float delay;
     public Vector2 Speed;
-    public static bool timeFreezeActivated;
-    static GameObject Banana1 = null;
-    static Vector2 Banana_velocity = new Vector2();
+    public bool timeFreezeActivated;
+    GameObject Banana1 = null;
+    Vector2 Banana_velocity = new Vector2();
 
     // Use this for initialization
     void Start () {
@@ -29,31 +29,41 @@ public class BananaSpawn : MonoBehaviour {
             Banana1 = null;
 
             Banana1 = (GameObject)Instantiate(Banana, BananaShot.position, BananaShot.rotation);
-            Banana1.GetComponent<Rigidbody2D>().velocity = Speed;
-            Banana_velocity = Banana1.GetComponent<Rigidbody2D>().velocity;
-            
+            Banana1.GetComponent<Rigidbody2D>().velocity = Speed;            
         }
     }
 
 
-    public static void ActivateTimeFreeze()
+    public void ActivateTimeFreeze()
     {
         timeFreezeActivated = true;
         if (timeFreezeActivated)
         {
+            if (Banana1 != null)
+            {
+                
             Banana1.GetComponent<Rigidbody2D>().gravityScale = 0;
             Banana1.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            
+               // Banana1.GetComponent<Rigidbody2D>().isKinematic = true;
+                Banana1.GetComponent<Animator>().enabled = false;
+            Banana_velocity = Banana1.GetComponent<Rigidbody2D>().velocity;
+            }
         }
     }
 
 
-    public static void DeactivateTimeFreeze()
+    public void DeactivateTimeFreeze()
     {
         timeFreezeActivated = false;
         if (Banana1 != null)
         {
+            
             Banana1.GetComponent<Rigidbody2D>().gravityScale = 1;
             Banana1.GetComponent<Rigidbody2D>().velocity = Banana_velocity;
+            
+            //Banana1.GetComponent<Rigidbody2D>().isKinematic = false;
+            Banana1.GetComponent<Animator>().enabled = true;
         }
     }
 
