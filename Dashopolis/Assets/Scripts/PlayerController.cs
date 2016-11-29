@@ -151,7 +151,7 @@ public class PlayerController : MonoBehaviour
         isDashingTrigger = false;
 
 		if (superSkill < 1 || superSkill > 3)
-			superSkill = 1;
+			superSkill = 3;
 
         respawnFX.GetComponent<ParticleSystem>().Play();
 

@@ -10663,8 +10663,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1000011691706488, guid: 4c185d2e85569184ea0fdeb80bf84370, type: 2}
   projectileSpawnPoint: {fileID: 4000010932924508}
-  fireRate: 5
-  delay: 0.5
+  fireRate: 0.8
+  delay: 0
 --- !u!114 &114000010539815188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10839,8 +10839,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1000011691706488, guid: 4c185d2e85569184ea0fdeb80bf84370, type: 2}
   projectileSpawnPoint: {fileID: 4000014199155174}
-  fireRate: 5
-  delay: 0.5
+  fireRate: 0.8
+  delay: 0
 --- !u!114 &114000011113078468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10966,8 +10966,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1000011691706488, guid: 4c185d2e85569184ea0fdeb80bf84370, type: 2}
   projectileSpawnPoint: {fileID: 4000013192222196}
-  fireRate: 5
-  delay: 0.5
+  fireRate: 0.8
+  delay: 0
 --- !u!114 &114000011493889400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -45800,7 +45800,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: f630c234af91309489c1d583c31158a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
