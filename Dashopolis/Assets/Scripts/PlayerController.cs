@@ -84,6 +84,10 @@ public class PlayerController : MonoBehaviour
     public GameObject sandFx;
 
     private bool isRespawning;
+    bool oldTriggerHeld;
+    bool isDashingTrigger;
+    bool newTriggerHeld;
+
 
     // Use this for initialization
     void Start()
@@ -141,6 +145,9 @@ public class PlayerController : MonoBehaviour
         onRope = false;
         onSand = false;
         isRespawning = false;
+        oldTriggerHeld = false;
+        isDashingTrigger = false;
+        newTriggerHeld = false;
     }
 
     void FixedUpdate()
@@ -186,7 +193,7 @@ public class PlayerController : MonoBehaviour
         if (onRope)
         {
             GetComponent<Rigidbody2D>().gravityScale = 0;
-            if (Input.GetButton(playerPrefix + "Dash"))
+            if ((Input.GetButton(playerPrefix + "Dash") || isDashingTrigger))
             {
                 climbVelocity = runSpeed * Input.GetAxisRaw(playerPrefix + "Vertical");
             }
@@ -246,7 +253,16 @@ public class PlayerController : MonoBehaviour
             {
                 isWalking = false;
             }
-            if (Input.GetButton(playerPrefix + "Dash") && isWalking && !onSand)
+            
+            if (playerNumber == 1)
+            {
+                newTriggerHeld = Input.GetAxis(playerPrefix + "DashTrigger") > 0f;
+            }
+            if (!oldTriggerHeld && newTriggerHeld) {
+                isDashingTrigger = true;
+            }
+            oldTriggerHeld = newTriggerHeld;
+            if ((Input.GetButton(playerPrefix + "Dash") || isDashingTrigger) && isWalking && !onSand)
             {
                 isRunning = true;
                 //isWalking = false;
@@ -314,10 +330,10 @@ public class PlayerController : MonoBehaviour
             //moveVelocity = 0f;
 
             //  Running: available in all cases, except for SuperFlight
-            if (Input.GetButton(playerPrefix + "Dash") && !onSand /*&& !isUsingSuperFlight*/)
+            if ((Input.GetButton(playerPrefix + "Dash") || isDashingTrigger) && !onSand /*&& !isUsingSuperFlight*/)
                 moveVelocityH = runSpeed * Input.GetAxisRaw(playerPrefix + "Horizontal");
             // SuperSpeed min speed = runSpeed
-            else if (!Input.GetButton(playerPrefix + "Dash") && isUsingSuperSpeed)
+            else if (!Input.GetButton(playerPrefix + "Dash") && !isDashingTrigger && isUsingSuperSpeed)
                 moveVelocityH = runSpeed / superSpeedBoost * Input.GetAxisRaw(playerPrefix + "Horizontal");
             // Walking
             else
