@@ -95,6 +95,19 @@ public class PlayerController : MonoBehaviour
     {
         hud = GameObject.Find("HUD").GetComponentInChildren<HUDManager>();
 
+        if (playerNumber == 1 && PlayerPrefs.GetInt("Mode") == 1)
+        {
+            // Make the gameObject disappear without killing it
+            SpriteRenderer[] srs = gameObject.GetComponentsInChildren<SpriteRenderer>();
+
+            foreach (SpriteRenderer sr in srs)
+            {
+                sr.enabled = false;
+            }
+            gameObject.transform.position = new Vector2(0, 1000);
+            GetComponent<Rigidbody2D>().isKinematic = true;
+        }
+
         if (playerNumber == 0)
         {
 			superSkill = PlayerPrefs.GetInt ("P1 Ability");
@@ -153,7 +166,8 @@ public class PlayerController : MonoBehaviour
 		if (superSkill < 1 || superSkill > 3)
 			superSkill = 3;
 
-        respawnFX.GetComponent<ParticleSystem>().Play();
+        if (!(playerNumber == 1 && PlayerPrefs.GetInt("Mode") == 1))
+            respawnFX.GetComponent<ParticleSystem>().Play();
 
     }
 
@@ -226,7 +240,7 @@ public class PlayerController : MonoBehaviour
             offScreen = true;
             Die();
         }
-        if (isVisible && !timeFreezeActivated)
+        if (isVisible && !timeFreezeActivated && !(playerNumber == 1 && PlayerPrefs.GetInt("Mode") == 1))
         {
             /*
             if (grounded)

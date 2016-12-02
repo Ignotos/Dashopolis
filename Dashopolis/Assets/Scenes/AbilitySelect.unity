@@ -135,6 +135,11 @@ MonoBehaviour:
   time: {fileID: 21300000, guid: 16f19e34e55474b2785f91cd586fd07a, type: 3}
   flight: {fileID: 21300000, guid: 9e8bc8b6be83b4c4093a09a4056d390b, type: 3}
   speed: {fileID: 21300000, guid: 68f272c8d58074517b1697ef0f725416, type: 3}
+  player2image: {fileID: 1960085427}
+  player2text: {fileID: 1447045846}
+  player1image: {fileID: 820223935}
+  player1text: {fileID: 672759432}
+  abilityText: {fileID: 756332813}
 --- !u!82 &3056373
 AudioSource:
   m_ObjectHideFlags: 0

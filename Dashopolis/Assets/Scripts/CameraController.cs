@@ -20,6 +20,14 @@ shader: Sprites/Diffuse
 	// Use this for initialization
 	void Start () {
         distance = Vector3.Distance(player1.position, player2.position);
+        if (PlayerPrefs.GetInt("Mode") == 1)
+        {
+            singlePlayer = true;
+        }
+        else
+        {
+            singlePlayer = false;
+        }
     }
 
     // Update is called once per frame

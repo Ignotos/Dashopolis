@@ -35,10 +35,23 @@ public class AbilitySelector : MonoBehaviour {
 
 	private float timeInput;
 
+    public GameObject player2image;
+    public GameObject player2text;
+    public GameObject player1image;
+    public GameObject player1text;
+    public GameObject abilityText;
+
 
 	// Use this for initialization
 	void Start () {
-		sprites = new Sprite[]{speed, flight, time};
+        if (PlayerPrefs.GetInt("Mode") == 1)
+        {
+            Destroy(player2image);
+            Destroy(player2text);
+            player1image.transform.position = new Vector2(abilityText.transform.position.x, player1image.transform.position.y);
+            player1text.transform.position = new Vector2(abilityText.transform.position.x, player1text.transform.position.y);
+        }
+        sprites = new Sprite[]{speed, flight, time};
 		pOne = transform.parent.GetComponentsInChildren<Image> ()[1];
 		pTwo = transform.parent.GetComponentsInChildren<Image> ()[2];
 
@@ -118,7 +131,12 @@ public class AbilitySelector : MonoBehaviour {
 			PlayerPrefs.SetInt ("P2 Ability", player2Ability);
 			SceneManager.LoadScene ("ControlsScreen");
 		}
+        else if (player1Ability != -1 && PlayerPrefs.GetInt("Mode") == 1)
+        {
+            PlayerPrefs.SetInt("P1 Ability", player1Ability);
+            SceneManager.LoadScene("ControlsScreen");
+        }
 
 
-	}
+    }
 }

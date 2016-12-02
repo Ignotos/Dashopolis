@@ -29,6 +29,9 @@ public class HUDManager : MonoBehaviour {
 	int count;
 	int countdownTime;
 
+    public GameObject player2;
+    public GameObject player2img;
+
 	// Use this for initialization
 	void Awake () {
 		Slider[] s = transform.parent.GetComponentsInChildren<Slider> ();
@@ -63,6 +66,11 @@ public class HUDManager : MonoBehaviour {
 	}
 
 	void Start(){
+        if (PlayerPrefs.GetInt("Mode") == 1)
+        {
+            Destroy(player2);
+            Destroy(player2img);
+        }
 		StartCoroutine (startGame);
 	}
 

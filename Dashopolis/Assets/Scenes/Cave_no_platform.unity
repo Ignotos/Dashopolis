@@ -71,7 +71,8 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000001, guid: 0ca498657ea08e645b5a4a848f5f06a9,
+    type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
 NavMeshSettings:
@@ -283,7 +284,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000011589048802, guid: b6a9db35a89d1b541a68b8f4bc556446, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -396.65
+      value: -398
       objectReference: {fileID: 0}
     - target: {fileID: 4000011589048802, guid: b6a9db35a89d1b541a68b8f4bc556446, type: 2}
       propertyPath: m_LocalPosition.y
@@ -834,9 +835,39 @@ Prefab:
       propertyPath: m_PlaneDistance
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010335801870, guid: af70d68b1ce46486097019b7fd216ffd,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013206075626, guid: af70d68b1ce46486097019b7fd216ffd,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011127654962, guid: af70d68b1ce46486097019b7fd216ffd,
+        type: 2}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 1148650427}
+    - target: {fileID: 114000011127654962, guid: af70d68b1ce46486097019b7fd216ffd,
+        type: 2}
+      propertyPath: player2img
+      value: 
+      objectReference: {fileID: 1148650426}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: af70d68b1ce46486097019b7fd216ffd, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1148650426 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011094940892, guid: af70d68b1ce46486097019b7fd216ffd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1148650425}
+--- !u!1 &1148650427 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011686539302, guid: af70d68b1ce46486097019b7fd216ffd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1148650425}
 --- !u!1001 &1187398590
 Prefab:
   m_ObjectHideFlags: 0
@@ -920,6 +951,11 @@ Prefab:
         type: 2}
       propertyPath: zoomScalingFactor
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000011592285276, guid: b08ac8bb0d4026d4486a225c618a6de1,
+        type: 2}
+      propertyPath: m_OcclusionCulling
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b08ac8bb0d4026d4486a225c618a6de1, type: 2}

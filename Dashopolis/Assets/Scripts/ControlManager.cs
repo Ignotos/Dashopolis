@@ -49,5 +49,9 @@ public class ControlManager : MonoBehaviour {
 
 		if(p1Go && p2Go)
 			SceneManager.LoadScene("Cave_no_platform");
-	}
+        else if (p1Go && PlayerPrefs.GetInt("Mode") == 1)
+        {
+            SceneManager.LoadScene("Cave_no_platform");
+        }
+    }
 }
