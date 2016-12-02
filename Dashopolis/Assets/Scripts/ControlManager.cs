@@ -38,16 +38,20 @@ public class ControlManager : MonoBehaviour {
 		if (Input.GetButtonDown ("KB_Jump")) {
 			p1Go = true;
 			selection.Play ();
-			p1Ready.gameObject.SetActive (true);
-		}
+            if (PlayerPrefs.GetInt("Mode") == 1)
+            {
+                p1Ready.gameObject.transform.position = new Vector2(640, p1Ready.gameObject.transform.position.y);
+            }
+            p1Ready.gameObject.SetActive(true);
+        }
 
-		if (Input.GetButtonDown ("P1_Jump")) {
+        if (Input.GetButtonDown("P1_Jump") && PlayerPrefs.GetInt("Mode") != 1) {
 			p2Go = true;
 			selection.Play ();
 			p2Ready.gameObject.SetActive (true);
 		}
 
-		if(p1Go && p2Go)
+		if(p1Go && p2Go && PlayerPrefs.GetInt("Mode") != 1)
 			SceneManager.LoadScene("Cave_no_platform");
         else if (p1Go && PlayerPrefs.GetInt("Mode") == 1)
         {

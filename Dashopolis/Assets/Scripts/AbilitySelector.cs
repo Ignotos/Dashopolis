@@ -44,6 +44,12 @@ public class AbilitySelector : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+        sprites = new Sprite[]{speed, flight, time};
+		pOne = transform.parent.GetComponentsInChildren<Image> ()[1];
+		pTwo = transform.parent.GetComponentsInChildren<Image> ()[2];
+        pOne.material.color = Color.white;
+        pTwo.material.color = Color.white;
         if (PlayerPrefs.GetInt("Mode") == 1)
         {
             Destroy(player2image);
@@ -51,11 +57,7 @@ public class AbilitySelector : MonoBehaviour {
             player1image.transform.position = new Vector2(abilityText.transform.position.x, player1image.transform.position.y);
             player1text.transform.position = new Vector2(abilityText.transform.position.x, player1text.transform.position.y);
         }
-        sprites = new Sprite[]{speed, flight, time};
-		pOne = transform.parent.GetComponentsInChildren<Image> ()[1];
-		pTwo = transform.parent.GetComponentsInChildren<Image> ()[2];
-
-		indexOne = 0;
+        indexOne = 0;
 		indexTwo = 1;
 
 		pOne.sprite = sprites [indexOne];
@@ -99,35 +101,42 @@ public class AbilitySelector : MonoBehaviour {
 			selection.Play ();
 		}
 
-		if (timeInput > 0.3f && Input.GetAxisRaw ("P1_Horizontal") >0 && player2Ability == -1) {
-			indexTwo += 1;
-			if (indexTwo >= sprites.Length)
-				indexTwo = 0;
+        if (PlayerPrefs.GetInt("Mode") != 1)
+        {
+            if (timeInput > 0.3f && Input.GetAxisRaw("P1_Horizontal") > 0 && player2Ability == -1)
+            {
+                indexTwo += 1;
+                if (indexTwo >= sprites.Length)
+                    indexTwo = 0;
 
-			pTwo.sprite = sprites [indexTwo];
-			timeInput = 0;
-			selector.Play ();
-		}
+                pTwo.sprite = sprites[indexTwo];
+                timeInput = 0;
+                selector.Play();
+            }
 
-		if (timeInput > 0.3f && Input.GetAxisRaw ("P1_Horizontal") <0 && player2Ability == -1) {
-			indexTwo += -1;
-			if (indexTwo < 0)
-				indexTwo = sprites.Length-1;
-			pTwo.sprite = sprites [indexTwo];
-			timeInput = 0;
-			selector.Play ();
-		}
+            if (timeInput > 0.3f && Input.GetAxisRaw("P1_Horizontal") < 0 && player2Ability == -1)
+            {
+                indexTwo += -1;
+                if (indexTwo < 0)
+                    indexTwo = sprites.Length - 1;
+                pTwo.sprite = sprites[indexTwo];
+                timeInput = 0;
+                selector.Play();
+            }
 
-		if (Input.GetButtonDown ("P1_Jump")) {
-			pTwoCol = pTwo.material.color;
-			pTwo.material.color = Color.gray;
-			player2Ability = indexTwo + 1;
-			timeInput = 0;
-			selection.Play ();
-		}
+            if (Input.GetButtonDown("P1_Jump"))
+            {
+                pTwoCol = pTwo.material.color;
+                pTwo.material.color = Color.gray;
+                player2Ability = indexTwo + 1;
+                timeInput = 0;
+                selection.Play();
+            }
+        }
 
-		if(player1Ability != -1 && player2Ability != -1){
-			PlayerPrefs.SetInt ("P1 Ability", player1Ability);
+		if(player1Ability != -1 && player2Ability != -1 && PlayerPrefs.GetInt("Mode") != 1)
+        {
+            PlayerPrefs.SetInt ("P1 Ability", player1Ability);
 			PlayerPrefs.SetInt ("P2 Ability", player2Ability);
 			SceneManager.LoadScene ("ControlsScreen");
 		}
